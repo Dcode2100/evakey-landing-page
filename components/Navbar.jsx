@@ -1,13 +1,17 @@
 "use client"
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import "@styles/globals.css";
 const navItems = ['Products', 'Process', 'Contact Us'];
 
 function Navbar() {
   return (
-    <nav className='flex justify-between items-center p-5' style={{ width: '70vw' }}>
-      <a href='#'><Image src="/EVAKEY.png" width={200} height={80} alt='evakeylogo'/></a>
-      <div className='flex text-black space-x-4'>
+    <nav className='navbar flex justify-between items-center p-5 md:fixed top-0 w-full bg-text px-12' >
+      <a href='#'><Image className="brand_logo max-md:top-1" src="/evakey_logo.svg" width={200} height={80} quality={100} alt='evakeylogo' /></a>
+      <div className=''>
+
+      </div>
+      <div className='flex text-black space-x-4 max-md:hidden'>
         {navItems.map((item, index) => (
           <motion.div
             key={item}

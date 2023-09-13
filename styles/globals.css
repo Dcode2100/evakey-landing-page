@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,19 +8,38 @@
   padding: 0;
   box-sizing: border-box;
   border: 0;
+  font-family: "Poppins", sans-serif;
 }
 
-
+.smooth-scroll {
+  scroll-behavior: smooth;
+}
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background-color: #e6fcfe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand_logo {
+  display: block;
+  position: relative;
+  mix-blend-mode: darken;
+}
+@media screen and (max-width: 768px) {
+  /* Apply mix-blend-mode: lighten for smaller screens */
+  .brand_logo {
+    mix-blend-mode: hard-light;
+  }
+}
+
+/* Custom class to hide scrollbars */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
 }

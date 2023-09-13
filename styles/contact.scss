@@ -1,16 +1,16 @@
-@import './colors.module.scss';
+@import "./colors.module.scss";
 
-
-.bg{
+.bg {
     position: absolute;
     left: -2em;
     bottom: -10em;
     z-index: 0;
 }
 
-.bgRight{
+.bgRight {
     position: absolute;
     right: -2em;
     bottom: -10em;
     z-index: 0;
 }
+

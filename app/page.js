@@ -4,8 +4,8 @@ import HeroSection  from "@components/HeroSection";import ContactPage from "@com
 "@components/HeroSection"
 const Home = () => {
   return (
-    <div className="flex flex-col">
-      <HeroSection />
+    <div className="flex flex-col ">
+      {/* <HeroSection /> */}
       <ContactPage/>
     </div>
   );
