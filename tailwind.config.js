@@ -7,14 +7,22 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        text: "#012528",
-        background: "#e6fcfe",
-        primary: "#f9311f",
-        secondary: "#fde3be",
-        accent: "#ea0665",
+        text: "#012528",      // Text color
+        background: "#e6fcfe", // Background color
+        primary: "#f9311f",    // Primary color
+        secondary: "#fde3be",  // Secondary color
+        accent: "#ea0665",     // Accent color
       },
-      fontFamily: {},
+      fontFamily: {}, // Define your preferred fonts here
     },
   },
-  plugins: [],
+  plugins: [], // Add any plugins you want to use
+  breakpoints: {
+    // Define your breakpoints here
+    xs: "426px",   // extra small
+    sm: "640px",   // Small screens
+    md: "767px",   // Medium screens
+    lg: "1024px",  // Large screens
+    xl: "1280px",  // Extra-large screens
+  },
 };

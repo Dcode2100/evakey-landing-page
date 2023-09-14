@@ -1,15 +1,12 @@
 "use client"
-
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import "@styles/contact.scss"
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-// import Mail from "./icons/mail";
 import Image from "next/image";
-import bgContact from "@public/bg-contact.webp";
 import Input from "./Input";
 import Modal from "./Modal";
-
+import { motion } from "framer-motion";
 gsap.registerPlugin(ScrollTrigger);
 
 const ContactPage = () => {
@@ -29,6 +26,13 @@ const ContactPage = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  const fadeInFromLeft = {
+    initial: { opacity: 0, x: -50 }, // Initial state (hidden to the left)
+    animate: { opacity: 1, x: 0 },   // Animation state (visible)
+  };
+
+  const delays = [0, 0.2, 0.4, 0.6];
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // Add your form submission logic here
@@ -46,48 +50,38 @@ const ContactPage = () => {
   };
 
 
-  // const ref = useRef(null);
-  // useEffect(() => {
-  //   const el = ref.current;
-  //   gsap.fromTo(
-  //     el,
-  //     { y: "-200px", opacity: 0, scale: 2.5 },
-  //     {
-  //       y: "0px",
-  //       scale: 1,
-  //       opacity: 1,
-  //       scrollTrigger: {
-  //         trigger: el,
-  //         start: "top 100%",
-  //         end: "bottom 90%",
-  //         scrub: true,
-  //         toggleAction: "restart pause resume pause",
-  //       },
-  //     }
-  //   );
-  // }, []);
+
 
   return (
-    <section id="contact" className=" h-[100vh] max-md:h-full w-full  md:flex md:justify-between pt-[4rem] md:items-center  pb-[5rem] px-[3rem] md:px-[7rem]  bg-text text-background ">
-      <div className="contact-details flex flex-col gap-[2rem] max-md:mb-[7rem] md:max-w-[40%] tracking-widest leading-5">
-        <div className="flex flex-col gap-[1rem]">
-          <h2 className="text-3xl font-medium">Let's talk</h2>
-          <p className="text-sm font-thin tracking-widest leading-5">Looking to make a lasting impression with branded promotional products for your business? We're here to turn your ideas into reality. Get in touch with us today, and let's collaborate to bring your vision to life</p>
-        </div>
+    <section id="contact" className=" h-[100vh] max-md:h-full  w-full  md:flex md:justify-between max-md:pt-[4rem] md:pt-[8rem] pb-[5rem] px-[3rem] max-sm:px-[2rem] lg:px-[7rem]  bg-text text-background ">
+      <div className="contact-details flex flex-col gap-[2rem] md:pt-[4rem] max-md:mb-[7rem] md:max-w-[40%] tracking-widest leading-5">
+           <div className="flex flex-col gap-[1.5rem]">
+        <motion.h2 className="text-5xl font-medium" initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: delays[0] }}>Let's talk</motion.h2>
+        <motion.p className="text-sm font-thin tracking-widest leading-5" initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: delays[1] }}>
+          Looking to make a lasting impression with branded promotional products for your business? We're here to turn your ideas into reality. Get in touch with us today.
+        </motion.p>
+      </div>
 
-        <div className="email flex flex-col gap-[1rem] ">
-          <h3 className="text-3xl font-medium">Email</h3>
-          <a className="text-sm font-thin hover:cursor-pointer hover:text-white" href="mailto:kshemkariplastic@gmail.com"> kshemkariplastic@gmail.com</a>
-        </div>
+      <div className="email flex flex-col gap-[1rem] ">
+        <motion.h3 className="text-3xl font-medium" initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: delays[2] }}>Email</motion.h3>
+        <motion.a className="text-sm font-thin hover:cursor-pointer hover:text-white" href="mailto:kshemkariplastic@gmail.com" initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: delays[3] }}>
+          kshemkariplastic@gmail.com
+        </motion.a>
+      </div>
+
         <div className="phone flex flex-col gap-[1rem]">
-          <h3 className="text-3xl font-medium">Phone</h3>
+          <motion.h3 className="text-3xl font-medium" {...fadeInFromLeft}>Phone</motion.h3>
           <div className="flex flex-col text-sm font-thin">
-            <a className="hover:cursor-pointer hover:text-white" href="tel:9892552558"><span className="font-light">Office</span> - 9892552558</a>
-            <a className="hover:cursor-pointer hover:text-white" href="tel:8104780513"><span className="font-light">Phone</span> - 8104780513</a>
+            <motion.a className="hover:cursor-pointer hover:text-white" href="tel:9892552558" {...fadeInFromLeft}>
+              <span className="font-light">Office</span> - 9892552558
+            </motion.a>
+            <motion.a className="hover:cursor-pointer hover:text-white" href="tel:8104780513" {...fadeInFromLeft}>
+              <span className="font-light">Phone</span> - 8104780513
+            </motion.a>
           </div>
         </div>
       </div>
-      <div className="form relative md:max-w-[50%] w-full flex justify-center flex-col gap-[1rem]">
+      <div className="form relative md:max-w-[45%] md:flex-end md:pt-[8rem] w-full flex justify-center flex-col gap-[1rem] md:gap-[0.5rem]">
         {modalVisible && formSubmitted &&
           <Modal
             message={modalMessage}
@@ -103,18 +97,21 @@ const ContactPage = () => {
           <div className="mb-4">
             <textarea
               name="message"
-              className="hide-scrollbar border-b-2 w-full text-secondary font-light bg-transparent border-[#7a7a7a] focus:border-[#d5d5d5] focus:outline-none overflow-y-aut0 py-1 h-20 transition-all duration-300 hover:outline-none"
+              className="hide-scrollbar border-b-2 w-full text-secondary font-light bg-transparent border-[#7a7a7a] focus:border-[#d5d5d5] focus:outline-none overflow-y-aut0 py-1 h-20 md:h-30 transition-all duration-300 hover:outline-none"
               onChange={handleInputChange}
               placeholder="Type your message here"
               required
             ></textarea>
           </div>
-          <button
-            type="submit"
-            className="bg-white hover:opacity-70 duration-300 transition-opacity text-text text-xl font-extralight py-2 px-4  focus:outline-none"
-          >
-            Submit
-          </button>
+
+          <div className="w-full  md:flex md:justify-end relative">
+            <button
+              type="submit"
+              className="bg-white hover:opacity-70 md:w-max max-md:w-full md:px-12  duration-300 transition-opacity text-text text-xl font-extralight py-2 px-4  focus:outline-none"
+            >
+              Submit
+            </button>
+          </div>
         </form>
 
       </div>

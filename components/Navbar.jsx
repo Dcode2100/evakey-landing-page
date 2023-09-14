@@ -6,7 +6,7 @@ const navItems = ['Products', 'Process', 'Contact Us'];
 
 function Navbar() {
   return (
-    <nav className='navbar flex justify-between items-center p-5 md:fixed top-0 w-full bg-text px-12' >
+    <nav className='navbar flex justify-between items-center  py-5 md:py-[2.5rem]  max-sm:px-[1.5rem] md:fixed top-0 w-full bg-text px-12 md:px-[7rem]' >
       <a href='#'><Image className="brand_logo max-md:top-1" src="/evakey_logo.svg" width={200} height={80} quality={100} alt='evakeylogo' /></a>
       <div className=''>
 
