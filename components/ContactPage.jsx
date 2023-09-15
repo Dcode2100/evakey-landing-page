@@ -55,8 +55,8 @@ const ContactPage = () => {
 
 
   return (
-    <section id="contact" className=" h-[100vh]  relative max-md:h-max max-md:pb-[5rem] w-full  md:flex md:justify-between max-md:pt-[4rem] md:pt-[8rem]  px-[3rem] max-sm:px-[2rem] lg:px-[7rem] bg-transparent text-background ">
-      <BgAnimation></BgAnimation>
+    <section id="contact" className=" h-[100vh]  relative max-md:h-max max-md:pb-[5rem] w-full  md:flex md:justify-between max-md:pt-[4rem] md:pt-[8rem]  px-[3rem] max-sm:px-[2rem] lg:px-[7rem] bg-transparent text-white ">
+      <BgAnimation className="bg-text"></BgAnimation>
       <div className="contact-details flex flex-col gap-[2rem] md:pt-[4rem] max-md:mb-[7rem] md:max-w-[40%] tracking-widest leading-5 "  >
         <div data-aos="fade-right"
           data-aos-anchor-placement="center-bottom" data-aos-duration="1000" className="flex flex-col gap-[1.5rem]">
