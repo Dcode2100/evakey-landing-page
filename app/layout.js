@@ -1,5 +1,8 @@
 import "@styles/globals.css";
-
+import '@styles/BgAnimationSquare.scss'
+import '@styles/colors.module.scss'
+import '@styles/contact.scss'
+import '@styles/BgAnimationWaves.scss'
 import Navbar from "@components/Navbar";
 
 export const metadata = {

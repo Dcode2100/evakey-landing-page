@@ -1,6 +1,5 @@
 "use client"
 import { useState, useEffect } from "react";
-import "@styles/contact.scss"
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Image from "next/image";
@@ -9,6 +8,8 @@ import Modal from "./Modal";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
+import BgAnimation from "./BgAnimationSquare";
+import BgAnimationWaves from "./BgAnimationWaves";
 gsap.registerPlugin(ScrollTrigger);
 
 const ContactPage = () => {
@@ -54,24 +55,27 @@ const ContactPage = () => {
 
 
   return (
-    <section id="contact" className=" h-[100vh] max-md:h-full  w-full  md:flex md:justify-between max-md:pt-[4rem] md:pt-[8rem] pb-[5rem] px-[3rem] max-sm:px-[2rem] lg:px-[7rem]  bg-text text-background ">
-      <div className="contact-details flex flex-col gap-[2rem] md:pt-[4rem] max-md:mb-[7rem] md:max-w-[40%] tracking-widest leading-5 " data-aos="fade-right" data-aos-duration="1000" 
-        data-aos-easing="ease-in" >
-        <div className="flex flex-col gap-[1.5rem]">
+    <section id="contact" className=" h-[100vh]  relative max-md:h-max max-md:pb-[5rem] w-full  md:flex md:justify-between max-md:pt-[4rem] md:pt-[8rem]  px-[3rem] max-sm:px-[2rem] lg:px-[7rem] bg-transparent text-background ">
+      <BgAnimation></BgAnimation>
+      <div className="contact-details flex flex-col gap-[2rem] md:pt-[4rem] max-md:mb-[7rem] md:max-w-[40%] tracking-widest leading-5 "  >
+        <div data-aos="fade-right"
+          data-aos-anchor-placement="center-bottom" data-aos-duration="1000" className="flex flex-col gap-[1.5rem]">
           <h2 className="text-5xl font-medium" >Let's talk</h2>
           <p className="text-sm font-thin tracking-widest leading-5">
             Looking to make a lasting impression with branded promotional products for your business? We're here to turn your ideas into reality. Get in touch with us today.
           </p>
         </div>
 
-        <div className="email flex flex-col gap-[1rem] ">
+        <div data-aos="fade-right"
+          data-aos-anchor-placement="center-bottom" data-aos-duration="1700" className="email flex flex-col gap-[1rem] ">
           <h3 className="text-3xl font-medium" >Email</h3>
           <a className="text-sm font-thin hover:cursor-pointer hover:text-white" href="mailto:kshemkariplastic@gmail.com" >
             kshemkariplastic@gmail.com
           </a>
         </div>
 
-        <div className="phone flex flex-col gap-[1rem]">
+        <div data-aos="fade-right"
+          data-aos-anchor-placement="center-bottom" data-aos-duration="2500" className="phone flex flex-col gap-[1rem]">
           <h3 className="text-3xl font-medium" >Phone</h3>
           <div className="flex flex-col text-sm font-thin">
             <a className="hover:cursor-pointer hover:text-white" href="tel:9892552558">
@@ -83,8 +87,7 @@ const ContactPage = () => {
           </div>
         </div>
       </div>
-      <div data-aos="fade-up"
-     data-aos-anchor-placement="center-bottom" data-aos-duration="3000" className="form relative md:max-w-[45%] md:flex-end md:pt-[8rem] w-full flex justify-center flex-col gap-[1rem] md:gap-[0.5rem]">
+      <div data-aos="zoom-out-up" data-aos-duration="2000" className="form relative md:max-w-[45%] md:flex-end md:pt-[5rem] w-full flex justify-center flex-col gap-[1rem] md:gap-[0.5rem]">
         {modalVisible && formSubmitted &&
           <Modal
             message={modalMessage}
@@ -107,13 +110,16 @@ const ContactPage = () => {
             ></textarea>
           </div>
 
-          <div className="w-full  md:flex md:justify-end relative">
-            <button
-              type="submit"
-              className="bg-white hover:opacity-70 md:w-max max-md:w-full md:px-12  duration-300 transition-opacity text-text text-xl font-extralight py-2 px-4  focus:outline-none"
-            >
-              Submit
-            </button>
+          <div className="w-full md:flex md:justify-end relative">
+            <div className=" relative md:w-max max-md:w-full md:px-12 hover:opacity-70 transition-opacity duration-200 cursor-pointer py-2 px-4 ">
+              <BgAnimationWaves />
+              <button
+                type="submit"
+                className="bg-transparent  h-full w-full relative duration-300  z-20 transition-opacity text-text text-xl font-light   focus:outline-none"
+              >
+                Submit
+              </button>
+            </div>
           </div>
         </form>
 
@@ -130,6 +136,7 @@ const ContactPage = () => {
         alt="background polygons"
         src={bgContact}
       /> */}
+
     </section>
   );
 }
