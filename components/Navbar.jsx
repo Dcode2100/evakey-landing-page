@@ -1,67 +1,85 @@
 "use client"
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import styles from "@styles/Navbar.module.scss"
-
-import { gsap } from "gsap";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import "@styles/globals.css";
 
-const navItems = ['Products', 'Process', 'Contact Us'];
-
+const navItems = [
+  {
+    path: "/",
+    name: "Home",
+  },
+  {
+    path: "/now",
+    name: "Now",
+  },
+  {
+    path: "/guestbook",
+    name: "Guestbook",
+  },
+  {
+    path: "/writing",
+    name: "Writing",
+  },
+];
 function Navbar() {
-  const [menuActive, setMenuActive] = useState(true);
+  const [menuActive, setMenuActive] = useState(false);
+  let pathname = usePathname() || "/";
 
-  useEffect(() => {
-    const timeLine = gsap.timeline({ defaults: { ease: "power4.out" } });
-    timeLine
-      .fromTo(
-        `.${styles.bar}`,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 1 }
-      )
-      .fromTo(
-        `.${styles.link}`,
-        { opacity: 0, stagger: 0.1 },
-        { opacity: 1, stagger: 0.2, duration: 0.4 },
-        "<.5"
-      );
-    document.body.addEventListener('scroll', handleScroll);
-
-
-    return () => {
-      document.body.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  const handleScroll = () => {
-    const scrollY = window.scrollY;
-    if (scrollY) {
-      setMenuActive(false);
-      console.log(scrollY, "there is a scroll")
-    }
-  };
+  if (pathname.includes("/writing/")) {
+    pathname = "/writing";
+  }
+  const [hoveredPath, setHoveredPath] = useState(pathname);
 
   return (
-    <nav className='navbar flex justify-between items-center  py-8 md:py-[2.5rem]  max-xs:px-[1.5rem] md:fixed top-0 w-full bg-transparent md:bg-[#e6fcfe] px-12 md:px-[7rem] z-[100]' >
+    <nav className='navbar flex justify-between items-center  py-[2rem] md:py-[2.1rem]  max-xs:px-[1.5rem] md:fixed top-0 w-full bg-transparent md:bg-[#e6fcfe] px-12 md:px-[7rem] z-[100]' >
       <a href='#'><Image className="brand_logo max-md:top-1" src="/evakey_logo.svg" width={200} height={80} quality={100} alt='evakeylogo' /></a>
-      <div className=''>
 
-      </div>
       <div className='flex text-black space-x-4 '>
-        {navItems.map((item, index) => (
-          <motion.div
-            key={item}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className='max-md:hidden'
-            transition={{ delay: index * 0.2 }}
-          >
-            <a href={`#${item.toLowerCase().replace(/\s/g, '')}`} className='text-text duration-150'>
-              {item}
-            </a>
-          </motion.div>
-        ))}
+        <div className="border border-stone-800/90 p-[0.4rem] max-md:hidden rounded-lg  sticky top-4 z-[100] bg-stone-900/80 backdrop-blur-md">
+          <nav className="flex gap-2 relative justify-start w-full z-[100]  rounded-lg">
+            {navItems.map((item, index) => {
+              const isActive = item.path === pathname;
+
+              return (
+                <Link
+                  key={item.path}
+                  className={`px-4 py-2 rounded-md text-sm lg:text-base relative no-underline duration-300 ease-in ${isActive ? "text-zinc-100" : "text-zinc-400"
+                    }`}
+                  data-active={isActive}
+                  href={item.path}
+                  onMouseOver={() => setHoveredPath(item.path)}
+                  onMouseLeave={() => setHoveredPath(pathname)}
+                >
+                  <span>{item.name}</span>
+                  {item.path === hoveredPath && (
+                    <motion.div
+                      className="absolute bottom-0 left-0 h-full bg-stone-800/80 rounded-md -z-10"
+                      layoutId="navbar"
+                      aria-hidden="true"
+                      style={{
+                        width: "100%",
+                      }}
+                      transition={{
+                        type: "spring",
+                        bounce: 0.25,
+                        stiffness: 130,
+                        damping: 9,
+                        duration: 0.3,
+                      }}
+                    />
+                  )}
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
+
+
+
         <div className=" md:hidden flex items-center ">
           <button
             className={
@@ -82,35 +100,24 @@ function Navbar() {
       <aside
         className={
           menuActive
-            ? `${styles.mobile} ${styles.on}  bg-opacity-20 md:hidden`
-            : `${styles.mobile} ${styles.off} md:hidden`
+            ? `${styles.mobile} ${styles.on} bg-opacity-20 md:hidden`
+            : `${styles.mobile} ${styles.off} md:hidden `
         }
       >
-        <div className={`flex-col gap-3 justify-end  ${menuActive && "flex"}text-right m-0  relative z-10`}>
-          <div
-            onClick={() => setMenuActive(!menuActive)}
-            className="text-xl py-2 text-center cursor-pointer hover:scale-[1.07] duration-200 "
-            href="#about"
-          >
-            Products
-          </div>
-          <div
-            onClick={() => setMenuActive(!menuActive)}
-            className="text-xl py-2 text-center cursor-pointer hover:scale-[1.07] duration-200"
-            href="#knowlodge"
-          >
-            Process
-          </div>
-
-          <div
-            onClick={() => setMenuActive(!menuActive)}
-            className="text-xl py-2 text-center cursor-pointer hover:scale-[1.07] duration-200"
-            href="#contact"
-          >
-            Contact Us
-          </div>
+        <div
+          className={`flex-col md:hidden gap-3 justify-end ${menuActive && "flex"} text-right m-0 relative z-10`}
+        >
+          {["Products", "Process", "Contact Us"].map((menuItem, index) => (
+            <div
+              key={index}
+              onClick={() => setMenuActive(!menuActive)}
+              className="text-xl py-2 text-center cursor-pointer hover:scale-[1.07] duration-200"
+              href={`#${menuItem.toLowerCase().replace(/\s/g, "-")}`}
+            >
+              {menuItem}
+            </div>
+          ))}
         </div>
-        <div className="noise"></div>
       </aside>
 
     </nav>
