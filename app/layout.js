@@ -3,6 +3,7 @@ import '@styles/BgAnimationSquare.scss'
 import '@styles/colors.module.scss'
 import '@styles/contact.scss'
 import '@styles/BgAnimationWaves.scss'
+import '@styles/Navbar.module.scss'
 import Navbar from "@components/Navbar";
 
 export const metadata = {

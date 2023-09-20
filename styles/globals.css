@@ -25,14 +25,8 @@ body {
 .brand_logo {
   display: block;
   position: relative;
-  mix-blend-mode: darken;
 }
-@media screen and (max-width: 768px) {
-  /* Apply mix-blend-mode: lighten for smaller screens */
-  .brand_logo {
-    mix-blend-mode: hard-light;
-  }
-}
+
 
 /* Custom class to hide scrollbars */
 .hide-scrollbar::-webkit-scrollbar {

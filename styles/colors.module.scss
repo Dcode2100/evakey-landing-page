@@ -1,19 +1,17 @@
-$primary-color: #54ADF3;
+$primary-color: #f9311f;
 // $primary-color: #ff5100; 
-$secondary-color: #6100FF;
-$background-color: #0D0D0D;
+$secondary-color: #fde3be;
+$background-color: #e6fcfe;
 
-$primary-text-color: #EFEFEF;
-$secondary-text-color: #a7a7a7;
-$tertiary-text-color: #232323;
+$primary-text-color: #012528;
 
-$transparency-color: rgba(255, 255, 255, 0.05);
+$primary-accent-color: #ea0665;
 
-$black-color: #000;
+
+
 
 :export{
     primaryColor: $primary-color;
-    backgroundColor: $background-color;
     primaryTextColor: $primary-text-color;
-    secondaryTextColor:   $secondary-text-color;
+
 }

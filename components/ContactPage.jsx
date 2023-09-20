@@ -55,7 +55,7 @@ const ContactPage = () => {
 
 
   return (
-    <section id="contact" className=" h-[100vh]  relative max-md:h-max max-md:pb-[5rem] w-full  md:flex md:justify-between max-md:pt-[4rem] md:pt-[8rem]  px-[3rem] max-sm:px-[2rem] lg:px-[7rem] bg-transparent text-white ">
+    <section id="contact" className=" h-[100vh]  relative max-md:h-max max-md:pb-[5rem] w-full  md:flex md:justify-between max-md:pt-[4rem] md:pt-[8rem]  px-[3rem] max-sm:px-[2rem] lg:px-[7rem] bg-transparent text-white overflow-hidden ">
       <BgAnimation className="bg-text"></BgAnimation>
       <div className="contact-details flex flex-col gap-[2rem] md:pt-[4rem] max-md:mb-[7rem] md:max-w-[40%] tracking-widest leading-5 "  >
         <div data-aos="fade-right"
@@ -87,7 +87,7 @@ const ContactPage = () => {
           </div>
         </div>
       </div>
-      <div data-aos="zoom-out-up" data-aos-duration="2000" className="form relative md:max-w-[45%] md:flex-end md:pt-[5rem] w-full flex justify-center flex-col gap-[1rem] md:gap-[0.5rem]">
+      <div data-aos="zoom-out" data-aos-duration="2000" className="form relative md:max-w-[45%] md:flex-end md:pt-[5rem] w-full flex justify-center flex-col gap-[1rem] md:gap-[0.5rem] overflow-hidden">
         {modalVisible && formSubmitted &&
           <Modal
             message={modalMessage}

@@ -5,7 +5,7 @@ import HeroSection  from "@components/HeroSection";import ContactPage from "@com
 const Home = () => {
   return (
     <div className="flex flex-col ">
-      {/* <HeroSection /> */}
+      <HeroSection />
       <ContactPage/>
     </div>
   );
