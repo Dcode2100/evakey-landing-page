@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+h1 {
+  margin: 0; /*Add This*/
+  vertical-align: top;
+}
 :root {
   margin: 0;
   padding: 0;
@@ -26,7 +30,6 @@ body {
   display: block;
   position: relative;
 }
-
 
 /* Custom class to hide scrollbars */
 .hide-scrollbar::-webkit-scrollbar {

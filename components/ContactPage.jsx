@@ -5,11 +5,11 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Image from "next/image";
 import Input from "./Input";
 import Modal from "./Modal";
-
+import ButtonWave from "./ButtonWave";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import BgAnimation from "./BgAnimationSquare";
-import BgAnimationWaves from "./BgAnimationWaves";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const ContactPage = () => {
@@ -111,15 +111,7 @@ const ContactPage = () => {
           </div>
 
           <div className="w-full md:flex md:justify-end relative">
-            <div className=" relative md:w-max max-md:w-full md:px-12 hover:opacity-70 transition-opacity duration-200 cursor-pointer py-2 px-4 ">
-              <BgAnimationWaves />
-              <button
-                type="submit"
-                className="bg-transparent  h-full w-full relative duration-300  z-20 transition-opacity text-text text-xl font-light   focus:outline-none"
-              >
-                Submit
-              </button>
-            </div>
+           <ButtonWave title={"Submit"}/>
           </div>
         </form>
 
