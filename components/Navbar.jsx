@@ -13,7 +13,7 @@ const navItems = [
     name: "Home",
   },
   {
-    path: "/now",
+    path: "/products",
     name: "Now",
   },
   {
