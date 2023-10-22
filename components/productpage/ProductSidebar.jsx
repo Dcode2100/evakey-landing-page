@@ -1,21 +1,24 @@
-
 // ProductSidebar.js
 import React from 'react';
 
 const ProductSidebar = ({ productTypes, selectedType, onSelectType }) => {
   return (
-    <div className="w-1/4 p-4">
+    <div className="sm:w-1/4 p-4 w-1/2 max-sm:w-[100%]">
       <h2 className="text-xl font-bold mb-4">Product Types</h2>
-      <ul>
+      <ul className=' max-sm:flex max-sm:gap-6 max-xs:gap-0 flex-wrap'>
         {productTypes.map((type) => (
           <li
             key={type}
-            className={`cursor-pointer ${
-              selectedType === type ? 'font-bold' : ''
-            }`}
-            onClick={() => onSelectType(type)}
+            className="mb-2"
           >
-            {type}
+            <div
+              className={`cursor-pointer border p-2 hover:bg-gray-100 duration-300 transition-all${
+                selectedType === type ? 'font-bold' : ''
+              }`}
+              onClick={() => onSelectType(type)}
+            >
+              {type}
+            </div>
           </li>
         ))}
       </ul>

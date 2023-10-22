@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import ProductSidebar from "../../components/productpage/ProductSidebar";
 import ProductCard from "../../components/productpage/ProductCard";
 
+
 const Products = () => {
   const metalKeychainProducts = [
     {
@@ -74,6 +75,7 @@ const Products = () => {
     },
   ];
 
+
   const productTypes = ["Metal Keychains", "Rubber Keychains", "Others"];
   const [selectedType, setSelectedType] = useState(productTypes[0]);
 
@@ -99,7 +101,7 @@ const Products = () => {
   }
 
   return (
-    <div className="md:mt-[150px] flex border-2 p-7 rounded-lg md:w-[80%] m-auto ">
+    <div className="md:mt-[150px] flex flex-col items-center md:flex-row justify-center p-4 md:space-x-8">
       <ProductSidebar
         productTypes={productTypes}
         selectedType={selectedType}
