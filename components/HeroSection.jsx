@@ -7,12 +7,12 @@ import { useState,useEffect } from 'react'
 const HeroSection = () => {
   const CircleClass = ` border-2 rounded-full bg-secondary h-[15rem] w-[15rem] `
   return (
-    <section className='h-[100vh] md:px-[7rem] bg-primary hidden relative sm:flex justify-center items-center sm:pt-[6.5rem]'>
+    <section className='h-[100vh] md:px-[7rem] bg-black text-white hidden relative sm:flex justify-center items-center sm:pt-[6.5rem]'>
 
       <div className='left-container w-1/2 gap-9 relative flex flex-col justify-center '>
         <div className='brand&punchline text-5xl flex flex-col '>
           <div className='flex gap-3'>
-            <Image className="brand_logo " src="/evakey_logo-hero.svg" width={220} height={80} quality={100} alt='Logo' />
+            <Image className="brand_logo " src="/evakey_logo.svg" width={220} height={80} quality={100} alt='Logo' />
             <h1 className=''> YOUR PARTNER IN </h1>
           </div>
           <p className='ml-[-0.2rem]'>CRAFTING PROMOTIONS</p>

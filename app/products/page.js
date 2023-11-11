@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import ProductSidebar from "../../components/productpage/ProductSidebar";
 import ProductCard from "../../components/productpage/ProductCard";
 
-
 const Products = () => {
   const metalKeychainProducts = [
     {
@@ -37,37 +36,85 @@ const Products = () => {
       id: 5,
       name: "Spider-Man Rubber Keychain",
       description: "Fun rubber keychain with Spider-Man design.",
-      image: "spider_man.jpg",
+      image: "rubber1.jpg",
     },
     {
       id: 6,
       name: "Captain America Rubber Keychain",
       description: "Vibrant rubber keychain featuring Captain America.",
-      image: "captain_america.jpg",
+      image: "rubber2.jpg",
     },
     {
       id: 7,
       name: "Cute Animal Rubber Keychain",
       description: "Adorable rubber keychain featuring cute animals.",
-      image: "cute_animal.jpg",
+      image: "rubber3.jpg",
     },
-  ];
-
-  const otherProducts = [
     {
       id: 8,
+      name: "Superhero Logo Rubber Keychain",
+      description: "Rubber keychain with iconic superhero logos.",
+      image: "rubber4.jpg",
+    },
+    {
+      id: 9,
+      name: "Glow-in-the-Dark Rubber Keychain",
+      description: "Rubber keychain that glows in the dark.",
+      image: "rubber5.jpg",
+    },
+    {
+      id: 10,
+      name: "Comic Book Rubber Keychain",
+      description: "Colorful rubber keychain inspired by comic books.",
+      image: "rubber6.jpg",
+    },
+    {
+      id: 11,
+      name: "Animal Lover Rubber Keychain",
+      description: "Rubber keychain for animal enthusiasts.",
+      image: "rubber7.jpg",
+    },
+    {
+      id: 12,
+      name: "Classic Car Rubber Keychain",
+      description: "Rubber keychain featuring vintage cars.",
+      image: "rubber8.jpg",
+    },
+    {
+      id: 13,
+      name: "Music Note Rubber Keychain",
+      description: "Musical-themed rubber keychain with notes.",
+      image: "rubber9.jpg",
+    },
+    {
+      id: 14,
+      name: "Space Explorer Rubber Keychain",
+      description: "Explore the cosmos with this rubber keychain.",
+      image: "rubber10.jpg",
+    },
+    {
+      id: 15,
+      name: "Abstract Art Rubber Keychain",
+      description: "Express your artistic side with this abstract art keychain.",
+      image: "rubber11.jpg",
+    },
+  ];
+  
+  const otherProducts = [
+    {
+      id: 16,
       name: "Cartoon Character Keychain",
       description: "Colorful keychain featuring various cartoon characters.",
       image: "cartoon_keychain.jpg",
     },
     {
-      id: 9,
+      id: 17,
       name: "Random Name Keychain",
       description: "Unique keychain with a creative design.",
       image: "random_keychain.jpg",
     },
     {
-      id: 10,
+      id: 18,
       name: "Abstract Art Rubber Keychain",
       description:
         "Express your artistic side with this abstract art keychain.",
@@ -101,7 +148,7 @@ const Products = () => {
   }
 
   return (
-    <div className="md:mt-[150px] flex flex-col items-center md:flex-row justify-center p-4 md:space-x-8">
+    <div className="lg:mt-[120px] md:mt-[110px] flex flex-col md:flex-row max-md:items-center gap-0 backdrop:justify-center p-4 md:space-x-8">
       <ProductSidebar
         productTypes={productTypes}
         selectedType={selectedType}
