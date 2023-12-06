@@ -23,7 +23,7 @@ function Navbar() {
   const [hoveredPath, setHoveredPath] = useState(pathname);
 
   return (
-    <nav className='navbar flex justify-between items-center py-[1.5rem] md:py-[1.5rem] max-xs:px-[1.5rem] md:fixed top-0 w-full bg-transparent md:bg-[#e6fcfe] px-6 md:px-[7rem] z-[100]'>
+    <nav className='navbar flex justify-between items-center py-[1.5rem] md:py-[1.5rem] max-xs:px-[1.5rem] md:fixed top-0 w-full bg-transparent bg-white px-6 md:px-[7rem] z-[100]'>
       <a href='/'><Image className="brand_logo max-md:top-0.5" src="/evakey_logo.svg" width={200} height={80} quality={100} alt='evakeylogo' /></a>
 
       <div className='flex text-black space-x-4'>
