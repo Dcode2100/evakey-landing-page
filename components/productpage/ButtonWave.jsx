@@ -1,5 +1,5 @@
 import React from 'react'
-import BgAnimationWaves from "./BgAnimationWaves";
+import BgAnimationWaves from "../contactpage/BgAnimationWaves";
 
 const ButtonWave = ({ title, onClick }) => {
     return (

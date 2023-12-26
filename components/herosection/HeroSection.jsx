@@ -1,6 +1,6 @@
 // import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import ButtonWave from "./ButtonWave";
+import ButtonWave from "../productpage/ButtonWave";
 
 const HeroSection = () => {
   return (

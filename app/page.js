@@ -1,6 +1,6 @@
 import React from "react";
 import "@styles/globals.css";
-import HeroSection  from "@components/HeroSection";import ContactPage from "@components/ContactPage";
+import HeroSection  from "@components/herosection/HeroSection";import ContactPage from "@components/contactpage/ContactPage";
 "@components/HeroSection"
 const Home = () => {
   return (

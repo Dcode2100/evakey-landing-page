@@ -29,9 +29,6 @@ const Products = () => {
       description: "Explore the galaxy with this unique metal keychain.",
       image: "galaxy_explorer.jpg",
     },
-  ];
-
-  const rubberKeychainProducts = [
     {
       id: 5,
       name: "Spider-Man Rubber Keychain",
@@ -68,6 +65,10 @@ const Products = () => {
       description: "Colorful rubber keychain inspired by comic books.",
       image: "rubber6.jpg",
     },
+  ];
+
+  const rubberKeychainProducts = [
+    
     {
       id: 11,
       name: "Animal Lover Rubber Keychain",
@@ -95,18 +96,20 @@ const Products = () => {
     {
       id: 15,
       name: "Abstract Art Rubber Keychain",
-      description: "Express your artistic side with this abstract art keychain.",
+      description:
+        "Express your artistic side with this abstract art keychain.",
       image: "rubber11.jpg",
     },
-  ];
-  
-  const otherProducts = [
     {
       id: 16,
       name: "Cartoon Character Keychain",
       description: "Colorful keychain featuring various cartoon characters.",
       image: "cartoon_keychain.jpg",
     },
+  ];
+
+  const otherProducts = [
+   
     {
       id: 17,
       name: "Random Name Keychain",
@@ -121,7 +124,6 @@ const Products = () => {
       image: "abstract_art.jpg",
     },
   ];
-
 
   const productTypes = ["Metal Keychains", "Rubber Keychains", "Others"];
   const [selectedType, setSelectedType] = useState(productTypes[0]);
@@ -148,7 +150,7 @@ const Products = () => {
   }
 
   return (
-    <div className="lg:mt-[120px] md:mt-[110px] flex flex-col md:flex-row max-md:items-center gap-0 backdrop:justify-center p-4 md:space-x-8">
+    <div className="flex h-full min-h-screen flex-col gap-0 p-4 backdrop:justify-center max-md:items-center md:mt-[110px] md:flex-row md:space-x-8 lg:mt-[120px]">
       <ProductSidebar
         productTypes={productTypes}
         selectedType={selectedType}
