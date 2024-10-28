@@ -1,6 +1,7 @@
 // import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import ButtonWave from "../productpage/ButtonWave";
+import SimpleSlider from "@components/carousel-slider/SimpleSlider";
 
 const HeroSection = () => {
   return (
@@ -23,8 +24,8 @@ const HeroSection = () => {
           </p>
         </div>
       </div>
-      <div className="flex flex-col justify-center space-y-4 ">
-
+      <div className="flex flex-col justify-center align-center space-y-4 ">
+        <SimpleSlider />
       </div>
     </section>
   );

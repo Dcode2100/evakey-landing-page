@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import ProductSidebar from "../../components/productpage/ProductSidebar";
-import ProductCard from "../../components/productpage/ProductCard";
+import ProductSidebar from "@/components/productpage/ProductSidebar";
+import ProductCard from "@/components/productpage/ProductCard";
 
 const Products = () => {
   const metalKeychainProducts = [
@@ -68,7 +68,6 @@ const Products = () => {
   ];
 
   const rubberKeychainProducts = [
-    
     {
       id: 11,
       name: "Animal Lover Rubber Keychain",
@@ -109,7 +108,6 @@ const Products = () => {
   ];
 
   const otherProducts = [
-   
     {
       id: 17,
       name: "Random Name Keychain",

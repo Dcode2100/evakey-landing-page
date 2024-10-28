@@ -1,191 +1,188 @@
 @import "./colors.module.scss";
 .logoX {
-    transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .logo {
-    &:hover {
-        .logoX {
-            transform: rotate(180deg);
-        }
+  &:hover {
+    .logoX {
+      transform: rotate(180deg);
     }
+  }
 }
 
 .link {
-    @apply text-sm;
-    opacity: 0;
-    position: relative;
-    color: $primary-text-color;
-    height: fit-content;
-    padding: 0.4em 0.8em;
-    border-radius: 0.3em;
-    transition: all 0.3s cubic-bezier(1, -0.05, 0.77, 1.04);
+  @apply text-sm;
+  opacity: 0;
+  position: relative;
+  color: $primary-text-color;
+  height: fit-content;
+  padding: 0.4em 0.8em;
+  border-radius: 0.3em;
+  transition: all 0.3s cubic-bezier(1, -0.05, 0.77, 1.04);
 
+  &:before {
+    content: "";
+    height: 0.15em;
+    width: 0.4em;
+    border-radius: 1em;
+    background: $primary-color;
+    position: absolute;
+    bottom: -0.5em;
+    left: 50%;
+    transform: translate(-50%);
+    transition: all 0.2s cubic-bezier(1, -0.05, 0.77, 1.04);
+  }
+
+  &:hover {
+    background-color: $primary-text-color;
     &:before {
-        content: "";
-        height: 0.15em;
-        width: 0.4em;
-        border-radius: 1em;
-        background: $primary-color;
-        position: absolute;
-        bottom: -0.5em;
-        left: 50%;
-        transform: translate(-50%);
-        transition: all 0.2s cubic-bezier(1, -0.05, 0.77, 1.04);
+      width: 90%;
+      box-shadow: transparentize($primary-color, $amount: 0.4) 0px -7px 20px 1px;
     }
-
-    &:hover {
-        background-color: $primary-text-color;
-        &:before {
-            width: 90%;
-            box-shadow: transparentize($primary-color, $amount: 0.4) 0px -7px 20px 1px;
-        }
-    }
+  }
 }
 
 .bar {
-    border-bottom: 1px solid $primary-text-color;
-    background-color: transparentize($background-color, 0.7);
-    position: sticky;
-    top: 0;
+  border-bottom: 1px solid $primary-text-color;
+  background-color: transparentize($background-color, 0.7);
+  position: sticky;
+  top: 0;
 }
 
 .curriculum {
-    background-color: transparent;
-    color: $primary-text-color;
-    overflow: hidden;
-    cursor: pointer;
-    position: relative;
-    transition: all 0.1s ease-in-out;
-    border: 1px solid $primary-color;
-    &:hover {
-        background-color: transparentize($primary-color, 0.9);
-        color: $primary-color;
-        transform: scale(1.05);
-    }
+  background-color: transparent;
+  color: $primary-text-color;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.1s ease-in-out;
+  border: 1px solid $primary-color;
+  &:hover {
+    background-color: transparentize($primary-color, 0.9);
+    color: $primary-color;
+    transform: scale(1.05);
+  }
 }
 
 .box {
-    width: 30px;
-    height: 30px;
-    outline: none;
-    // border: 2px solid blue;
+  width: 30px;
+  height: 30px;
+  outline: none;
+  // border: 2px solid blue;
 }
 
 .active {
-    .hamburguer {
-        & {
-            // background-color: rgb(186, 20, 20);
-            background-color: transparent;
-        }
-
-        &::after {
-            top: -5px;
-            transform: rotate(45deg);
-        }
-        &::before {
-            top: -1px;
-            transform: rotate(-45deg);
-        }
+  .hamburguer {
+    & {
+      // background-color: rgb(186, 20, 20);
+      background-color: transparent;
     }
+
+    &::after {
+      top: -5px;
+      transform: rotate(45deg);
+    }
+    &::before {
+      top: -1px;
+      transform: rotate(-45deg);
+    }
+  }
 }
 
 .mobile {
-    background-color: transparentize($primary-text-color, 0.6);
-    position: fixed;
-    right: 0;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(5px);
-    z-index: 30;
-    transition: all 0.3s ease-in-out;
-    border-radius: 50%;
-    /* Use a CSS animation */
-    transform-origin: top left;
-    &.on {
-        display: flex;
-        animation: openMobile 0.5s forwards; /* Display it when 'on' class is added */
+  background-color: transparentize($primary-text-color, 0.6);
+  position: fixed;
+  right: 0;
+  justify-content: center;
+  align-items: center;
+  z-index: 30;
+  transition: all 0.3s ease-in-out;
+  border-radius: 50%;
+  /* Use a CSS animation */
+  transform-origin: top left;
+  &.on {
+    display: flex;
+    animation: openMobile 0.5s forwards; /* Display it when 'on' class is added */
+  }
+  &.off {
+    display: flex;
+    animation: closeMobile 0.5s forwards;
+  }
+  @keyframes openMobile {
+    0% {
+      width: 0vw; /* Start with 25% width */
+      height: 0vh; /* Start with 25% height */
+      border-radius: 50%;
+      color: transparent;
+      top: 3rem;
+      right: 4rem;
+      display: hidden;
     }
-    &.off {
-        display: flex;
-        animation: closeMobile 0.5s forwards;
+    10% {
+      // width: 50%;
     }
-    @keyframes openMobile {
-        0% {
-            width: 0vw; /* Start with 25% width */
-            height: 0vh; /* Start with 25% height */
-            border-radius: 50%;
-            color: transparent;
-            top: 3rem;
-            right: 4rem;
-            display: hidden;
-            
-        }
-        10%{
-            // width: 50%;
-        }
-        100% {
-            display: flex;
-            width: 100vw; /* End with 100% width */
-            height: calc(100vh - 6rem); /* End with 100% height */
-            border-radius: 0%;
-            color: azure;
-            top: 6rem;
-        }
+    100% {
+      display: flex;
+      width: 100vw; /* End with 100% width */
+      height: calc(100vh - 6rem); /* End with 100% height */
+      border-radius: 0%;
+      color: azure;
+      top: 6rem;
     }
+  }
 
-    @keyframes closeMobile {
-        0% {
-            width: 100vw;
-            height: calc(100vh - 6rem);
-            border-radius: 0%;
-            color: azure;
-            top: 6rem;
-        }
-        5% {
-            color: transparent;
-        }
-        100% {
-            width: 0vw;
-            height: 0vh;
-            border-radius: 50%;
-            color: transparent;
-            top: 3rem;
-            right: 4rem;
-        }
+  @keyframes closeMobile {
+    0% {
+      width: 100vw;
+      height: calc(100vh - 6rem);
+      border-radius: 0%;
+      color: azure;
+      top: 6rem;
     }
-  
+    5% {
+      color: transparent;
+    }
+    100% {
+      width: 0vw;
+      height: 0vh;
+      border-radius: 50%;
+      color: transparent;
+      top: 3rem;
+      right: 4rem;
+    }
+  }
 }
 @media screen and (min-width: 727px) {
-    .mobile {
-        &.on {
-            display: none;
-        }
-        &.off {
-            display: none;
-        }
+  .mobile {
+    &.on {
+      display: none;
     }
+    &.off {
+      display: none;
+    }
+  }
 }
 .hamburguer {
+  position: relative;
+  &,
+  &::before,
+  &::after {
+    width: 30px;
+    height: 4px;
+    border-radius: 4px;
+    background-color: $primary-color;
     position: relative;
-    &,
-    &::before,
-    &::after {
-        width: 30px;
-        height: 4px;
-        border-radius: 4px;
-        background-color: $primary-color;
-        position: relative;
-        display: block;
-        transition: all 0.3s ease-in-out;
-    }
+    display: block;
+    transition: all 0.3s ease-in-out;
+  }
 
-    &::after {
-        content: "";
-        top: -14px;
-    }
-    &::before {
-        content: "";
-        top: 10px;
-    }
+  &::after {
+    content: "";
+    top: -14px;
+  }
+  &::before {
+    content: "";
+    top: 10px;
+  }
 }

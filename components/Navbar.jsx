@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useMemo } from 'react';
 import Image from 'next/image';
-import styles from "@styles/Navbar.module.scss";
+import styles from "@styles/Navbar.module.scss"
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
