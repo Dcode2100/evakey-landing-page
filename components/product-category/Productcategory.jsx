@@ -25,11 +25,11 @@ const ProductCategory = () => {
     },
     {
       id: 3,
-      name: "promotional items",
+      name: "promotionalitems",
       bgColor: "bg-blue-300",
       extracolors: "opacity-80 bg-black",
       image: "/Assets/card.jpg",
-      link: "/products/promotional-items"
+      link: "/products/promotionalitems"
     },
     {
       id: 4,
