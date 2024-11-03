@@ -12,7 +12,7 @@ const Navbar = () => {
 
   const navItems = useMemo(() => [
     { path: "/", name: "Home" },
-    { path: "/products", name: "Products" },
+    { path: "/products/bag", name: "Products" },
   ], []);
 
   return (
