@@ -1,5 +1,5 @@
-// import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 import ButtonWave from "../productpage/ButtonWave";
 import SimpleSlider from "@components/carousel-slider/SimpleSlider";
 import Productcategory from "@components/product-category/Productcategory";
@@ -7,55 +7,77 @@ import Productcategory from "@components/product-category/Productcategory";
 const HeroSection = () => {
   return (
     <>
-      <section className="container md:px-[7rem] mx-auto grid lg:grid-cols-2 gap-6 p-6 h-[100vh] pt-[102px]">
-        <div className="flex flex-col justify-center space-y-4 ">
-          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
-            Discover Amazing Keychains
-          </h1>
-          <p className="text-lg md:text-xl text-zinc-500 dark:text-zinc-400">
-            Premium and custom keychains for everyone.
-          </p>
-          <Link href="/products">
-            <ButtonWave title="Expore Products" />{" "}
-          </Link>
-          <div className="space-y-2">
-            <h3 className="text-lg font-medium">About EVA KEY</h3>
-            <p className="text-sm text-zinc-500 dark:text-zinc-400">
-              We're a global keychain company providing high-quality, custom
-              keychains to customers worldwide.
+      <section className="container mx-auto px-4 md:px-[7rem] min-h-screen">
+        <div className="grid lg:grid-cols-2 gap-6 pt-[102px]">
+          <div className="flex flex-col justify-center space-y-4 py-8">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
+              Discover Amazing Keychains
+            </h1>
+            <p className="text-base md:text-lg lg:text-xl text-zinc-500 dark:text-zinc-400">
+              Premium and custom keychains for everyone.
             </p>
+            <Link href="/products">
+              <ButtonWave title="Explore Products" />
+            </Link>
+            <div className="space-y-2">
+              <h3 className="text-lg font-medium">About EVA KEY</h3>
+              <p className="text-sm md:text-base text-zinc-500 dark:text-zinc-400">
+                We&apos;re a global keychain company providing high-quality, custom
+                keychains to customers worldwide.
+              </p>
+            </div>
           </div>
-        </div>
-        <div className="flex flex-col justify-center align-center space-y-4 rad ">
-          <SimpleSlider />
+          <div className="flex justify-center items-center w-full lg:pl-[5rem]">
+            <div className="w-full max-w-[500px]">
+              <SimpleSlider />
+            </div>
+          </div>
         </div>
       </section>
-      <div className="flex justify-center m-7 X ">
-        <div className="flex flex-col items-center justify-center w-[140vb] ">
-          <h3 className="text-lg font-bold mb-4 p-1">Brands That Trust Us</h3>
-          <div className="flex justify-between w-full  ">
-            <img
-              src="https://www.jagranimages.com/images/newimg/21082020/21_08_2020-ipl_logo_20650553.jpg"
-              className="h-13 w-[90px]"
-            />
-            <img
-              src="https://www.centralagsupply.com/wp-content/uploads/2017/08/020.jpg"
-              className="h-13 w-[90px]"
-            />
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSEpAAy4WojeOlFUjE84IxCMIl3_sK8OiOeg&s"
-              className="h-13 w-[90px]"
-            />
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaoGrllCeBLDClTWac0LubkWuF8mysWCGMBg&s"
-              className="h-13 w-[90px]"
-            />
+
+      <div className="relative px-4 py-12">
+        <div className="max-w-4xl mx-auto">
+          <h3 className="text-lg font-bold text-center mb-8">Brands That Trust Us</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center">
+            <div className="relative h-20 w-20 md:w-[90px]">
+              <Image
+                src="/Assets/ipl.jpg"
+                alt="Brand 1"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <div className="relative h-20 w-20 md:w-[90px]">
+              <Image
+                src="/Assets/abs.jpg"
+                alt="Brand 2"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <div className="relative h-20 w-20 md:w-[90px]">
+              <Image
+                src="/Assets/hdfc.png"
+                alt="Brand 3"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <div className="relative h-20 w-20 md:w-[90px]">
+              <Image
+                src="/Assets/disney.png"
+                alt="Brand 4"
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
         </div>
-        <div className="absolute w-full border-b-2 border-blue-500 mt-[23vh]"/>
+        <div className="absolute w-full border-b-2 border-blue-500 bottom-0" />
       </div>
-      <div className="h-[100vh] relative m-8 px-[5rem] ">
-      <Productcategory/>
+
+      <div className="px-4 md:px-[5rem] py-12">
+        <Productcategory />
       </div>
     </>
   );

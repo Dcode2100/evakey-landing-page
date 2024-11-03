@@ -24,7 +24,7 @@ const ProductCard = ({ products }) => {
             onMouseLeave={handleProductLeave}
           >
             <div className="relative h-[15rem]">
-              <Image
+              <Image 
                 src={`/rubberkeychain/${product.image}`}
                 alt={product.name}
                 fill
