@@ -1,9 +1,12 @@
-import React from 'react'
+"use client";
+import ProductPageLayout from '@components/layouts/ProductPageLayout';
+import React from 'react';
 
-const page = () => {
+
+const PromotionalItems = () => {
   return (
-    <div>page</div>
-  )
+    <ProductPageLayout />
+  );
 }
 
-export default page
+export default PromotionalItems

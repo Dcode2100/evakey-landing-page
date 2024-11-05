@@ -2,11 +2,9 @@
 import React from "react";
 
 const KeychainsPage = () => {
-  
   return (
-    <div className="container ">
-     
-
+    <div className="w-full">
+      {/* Your keychains page content will be wrapped by the layout automatically */}
     </div>
   );
 };
