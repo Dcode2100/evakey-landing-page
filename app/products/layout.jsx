@@ -5,28 +5,36 @@ import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import ProductPageLayout from "@components/layouts/ProductPageLayout";
 import ProductCategory from "@components/product-category/Productcategory";
+import PromotionalItems from "./promotionalitems/page";
 
 const Layout = ({ children }) => {
   const productCategories = {
     keychains: {
       HeroSection: {
-        title: "Keychains",
-        description: "A variety of stylish and functional keychains.",
+        title: "Rubber / Metal Keychains",
+        description: "Variety of stylish and functional keychains.",
         subDescription:
           "Keychains are a great way to keep your valuables secure and organized. Choose from a variety of styles and designs to suit your needs.",
-        imagePath: "/images/keychains.jpg",
+        imagePath: "/Assets/f1.png",
+        backgroundColor: "#fdc",
         links: {
-          ExpressQuote: "/products/keychains/express-quote",
-          Contact: "/products/keychains/contact",
+          ExpressQuote: {
+            text: "Express Quote",
+            url: "/products/keychains/express-quote"
+          },
+          Contact: {
+            text: "Contact Us",
+            url: "/products/keychains/contact"
+          }
         },
       },
       CardsSection: [
         {
-          imagePath: "/images/keychain1.jpg",
+          imagePath: "/Assets/keychain1.jpg",
           quotationLInk: "/products/keychain1",
         },
         {
-          imagePath: "/images/keychain2.jpg",
+          imagePath: "/Assets/keychain2.jpg",
           quotationLInk: "/products/keychain2",
         },
       ],
@@ -37,42 +45,56 @@ const Layout = ({ children }) => {
         description: "Explore our collection of bags for every occasion.",
         subDescription:
           "Whether you need a tote for your daily commute or a backpack for a weekend getaway, we have you covered.",
-        imagePath: "/images/bags.jpg",
+        imagePath: "/Assets/f2.png",
+        backgroundColor: "#e0e0e0",
         links: {
-          ExpressQuote: "/products/bags/express-quote",
-          Contact: "/products/bags/contact",
+          ExpressQuote: {
+            text: "Express Quote",
+            url: "/products/bags/express-quote"
+          },
+          Contact: {
+            text: "Contact Us",
+            url: "/products/bags/contact"
+          }
         },
       },
       CardsSection: [
         {
-          imagePath: "/images/bag1.jpg",
+          imagePath: "/Assets/bag1.jpg",
           quotationLInk: "/products/bag1",
         },
         {
-          imagePath: "/images/bag2.jpg",
+          imagePath: "/Assets/bag2.jpg",
           quotationLInk: "/products/bag2",
         },
       ],
     },
-    mugs: {
+    promotionalitems: {
       HeroSection: {
-        title: "Mugs",
+        title: "promotionalitems",
         description: "Find the perfect mug for your coffee or tea.",
         subDescription:
           "Whether you're looking for a stylish mug for your morning coffee or a travel mug for your next road trip, we've got you covered.",
-        imagePath: "/images/mugs.jpg",
+        imagePath: "/Assets/f3.png",
+        backgroundColor: "#4d4c4c",
         links: {
-          ExpressQuote: "/products/mugs/express-quote",
-          Contact: "/products/mugs/contact",
+          ExpressQuote: {
+            text: "Express Quote",
+            url: "/products/mugs/express-quote"
+          },
+          Contact: {
+            text: "Contact Us",
+            url: "/products/mugs/contact"
+          }
         },
       },
       CardsSection: [
         {
-          imagePath: "/images/mug1.jpg",
+          imagePath: "/Assets/mug1.jpg",
           quotationLInk: "/products/mug1",
         },
         {
-          imagePath: "/images/mug2.jpg",
+          imagePath: "/Assets/mug2.jpg",
           quotationLInk: "/products/mug2",
         },
       ],
@@ -94,8 +116,8 @@ const Layout = ({ children }) => {
         { title: "CanvasToteBag", path: "/products/bag2" },
       ],
     },
-    mugs: {
-      Title: "Mugs",
+    promotionalitems: {
+      Title: "promotionalitems",
       Links: [
         { title: "CeramicMug", path: "/products/mug1" },
         { title: "TravelMug", path: "/products/mug2" },
@@ -119,132 +141,16 @@ const Layout = ({ children }) => {
 
   return (
     <div className="flex w-full h-[70vh] relative rounded-lg">
-      <ProductPageLayout category={category} routeData={routeData} />
+      <ProductPageLayout category={category} routeData={routeData}>
+        <Image
+          src={routeData.HeroSection.imagePath}
+          alt={routeData.HeroSection.title}
+          fill
+          className="object-cover rounded-lg"
+        />
+      </ProductPageLayout>
     </div>
   );
 };
 
 export default Layout;
-// "use client";
-// import React, { useState } from "react";
-// import { usePathname } from "next/navigation";
-// import ProductPageLayout from "@components/layouts/ProductPageLayout";
-
-// const Layout = ({ children }) => {
-
-//   const productCategories = {
-//     keychains: {
-//       HeroSection: {
-//         title: "Keychains",
-//         description: "A variety of stylish and functional keychains.",
-//         subDescription:
-//           "Keychains are a great way to keep your valuables secure and organized. Choose from a variety of styles and designs to suit your needs.",
-//         imagePath: "/images/keychains.jpg",
-//         links: {
-//           ExpressQuote: "/products/keychains/express-quote",
-//           Contact: "/products/keychains/contact",
-//         },
-//       },
-
-//       CardsSection: [
-//         {
-//           imagePath: "/images/keychain1.jpg",
-//           quotationLInk: "/products/keychain1",
-//         },
-//         {
-//           imagePath: "/images/keychain2.jpg",
-//           quotationLInk: "/products/keychain2",
-//         },
-//       ],
-//     },
-
-//       bags: {
-//        HeroSection: {
-//         title: "Bags",
-//         description: "Explore our collection of bags for every occasion.",
-//         subDescription:
-//           "Whether you need a tote for your daily commute or a backpack for a weekend getaway, we have you covered.",
-//         imagePath: "/images/bags.jpg",
-//         links: {
-//           ExpressQuote: "/products/bags/express-quote",
-//           Contact: "/products/bags/contact",
-//         },
-//         },
-
-//       CardsSection: [
-//         {
-//           imagePath: "/images/bag1.jpg",
-//           quotationLInk: "/products/bag1",
-//         },
-//         {
-//           imagePath: "/images/bag2.jpg",
-//           quotationLInk: "/products/bag2",
-//         },
-//       ],
-//     },
-
-//     Promotionalitem: {
-//       HeroSection: {
-//         title: "Mugs",
-//         description: "Find the perfect mug for your coffee or tea.",
-//         subDescription:
-//           "Whether you're looking for a stylish mug for your morning coffee or a travel mug for your next road trip, we've got you covered.",
-//         imagePath: "/images/mugs.jpg",
-//         links: {
-//           ExpressQuote: "/products/mugs/express-quote",
-//           Contact: "/products/mugs/contact",
-//         },
-//       },
-//       CardsSection: [
-//         {
-//           imagePath: "/images/mug1.jpg",
-//           quotationLInk: "/products/mug1",
-//         },
-//         {
-//           imagePath: "/images/mug2.jpg",
-//           quotationLInk: "/products/mug2",
-//         },
-//       ],
-//     },
-//   };
-
-//   const CommonLeftSidebar = {
-//     keychains: {
-//       Title: "Keychains",
-//       Links: [
-//         { title: "MetalKeychain", path: "/products/keychain1" },
-//         { title: "PlasticKeychain", path: "/products/keychain2" },
-//       ],
-//     },
-//     bags: {
-//       Title: "Bags",
-//       Links: [
-//         { title: "CorporateLaptopBag", path: "/products/bag1" },
-//         { title: "CanvasToteBag", path: "/products/bag2" },
-//       ],
-//     },
-//     mugs: {
-//       Title: "Mugs",
-//       Links: [
-//         { title: "CeramicMug", path: "/products/mug1" },
-//         { title: "TravelMug", path: "/products/mug2" },
-//       ],
-//     },
-//   };
-
-//   const path = usePathname();
-//   const category = path.split("/")[2];
-//   const [routeData] = useState(productCategories[category]);
-
-//   if (!routeData) {
-//     return <div>Category not found</div>;
-//   }
-
-//   return (
-//     <div className="flex w-full h-[70vh] relative rounded-lg">
-//       <ProductPageLayout category={category} routeData={routeData} />
-//     </div>
-//   );
-// };
-
-// export default Layout}
