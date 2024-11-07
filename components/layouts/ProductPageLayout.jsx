@@ -1,5 +1,6 @@
 import React from "react";
 import ProductSidebar from "../ProductSidebar";
+import Card from "../Card";
 import Image from "next/image";
 
 const ProductPageLayout = ({ category, routeData, sidebarData }) => {
@@ -39,7 +40,9 @@ const ProductPageLayout = ({ category, routeData, sidebarData }) => {
             </div>
           </div>
         </div>
-        <div className="pl-[350px] top bg-red-400 w-full h-[70vh]"></div>
+        <div className="pl-[350px] top bg-red-400 w-full h-[70vh]">
+          <Card/>
+        </div>
       </div>
     </div>
   );
