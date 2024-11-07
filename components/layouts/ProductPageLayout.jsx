@@ -2,12 +2,12 @@ import React from "react";
 import ProductSidebar from "../ProductSidebar";
 import Image from "next/image";
 
-const ProductPageLayout = ({ category, routeData }) => {
+const ProductPageLayout = ({ category, routeData, sidebarData }) => {
 
   return (
     <div className="flex mt-[90px] w-full h-[70vh] relative rounded-lg">
       <div className="leftside-absolute top-[50px] absolute left-[30px] bg-white h-[100vh] w-[300px]">
-        <ProductSidebar category={category} routeData={routeData} />
+        <ProductSidebar category={category} routeData={routeData} sidebarData={sidebarData} />
       </div>
       <div className="w-full">
         <div

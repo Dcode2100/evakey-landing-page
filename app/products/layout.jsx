@@ -141,7 +141,11 @@ const Layout = ({ children }) => {
 
   return (
     <div className="flex w-full h-[70vh] relative rounded-lg">
-      <ProductPageLayout category={category} routeData={routeData}>
+      <ProductPageLayout 
+        category={category} 
+        routeData={routeData}
+        sidebarData={CommonLeftSidebar[category]}
+      >
         <Image
           src={routeData.HeroSection.imagePath}
           alt={routeData.HeroSection.title}
