@@ -6,8 +6,8 @@ const ProductPageLayout = ({ category, routeData }) => {
 
   return (
     <div className="flex mt-[90px] w-full h-[70vh] relative rounded-lg">
-      <div className="leftside-absolute top-[50px] absolute left-[30px] bg-blue-400 h-[100vh] w-[300px]">
-        <ProductSidebar category={category} />
+      <div className="leftside-absolute top-[50px] absolute left-[30px] bg-white h-[100vh] w-[300px]">
+        <ProductSidebar category={category} routeData={routeData} />
       </div>
       <div className="w-full">
         <div
