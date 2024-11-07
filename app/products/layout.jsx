@@ -30,12 +30,14 @@ const Layout = ({ children }) => {
       },
       CardsSection: [
         {
-          imagePath: "/Assets/keychain1.jpg",
+          imagePath: "https://rukminim2.flixcart.com/image/850/1000/xif0q/key-chain/o/h/4/new-design-radha-krishna-and-chhota-krishna-rubber-keyring-original-imagqtgncgqsxrra.jpeg?q=90&crop=false",
           quotationLInk: "/products/keychain1",
+          title: "Radha Krishna Keychain"
         },
         {
-          imagePath: "/Assets/keychain2.jpg",
+          imagePath: "/rubberkeychain/rubber2.png",
           quotationLInk: "/products/keychain2",
+          title: "god"
         },
       ],
     },
@@ -62,10 +64,12 @@ const Layout = ({ children }) => {
         {
           imagePath: "/Assets/bag1.jpg",
           quotationLInk: "/products/bag1",
+          title: "Corporate Laptop Bag"
         },
         {
           imagePath: "/Assets/bag2.jpg",
           quotationLInk: "/products/bag2",
+          title: "Canvas Tote Bag"
         },
       ],
     },
@@ -92,10 +96,12 @@ const Layout = ({ children }) => {
         {
           imagePath: "/Assets/mug1.jpg",
           quotationLInk: "/products/mug1",
+          title: "Ceramic Mug"
         },
         {
           imagePath: "/Assets/mug2.jpg",
           quotationLInk: "/products/mug2",
+          title: "Travel Mug"
         },
       ],
     },

@@ -40,8 +40,8 @@ const ProductPageLayout = ({ category, routeData, sidebarData }) => {
             </div>
           </div>
         </div>
-        <div className="pl-[350px] top bg-red-400 w-full h-[70vh]">
-          <Card/>
+        <div className="pl-[350px] top bg-gray-50 w-full min-h-[70vh]">
+          <Card routeData={routeData}/>
         </div>
       </div>
     </div>
