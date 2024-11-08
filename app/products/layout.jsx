@@ -20,24 +20,70 @@ const Layout = ({ children }) => {
         links: {
           ExpressQuote: {
             text: "Express Quote",
-            url: "/products/keychains/express-quote"
+            url: "/products/keychains/express-quote",
           },
           Contact: {
             text: "Contact Us",
-            url: "/products/keychains/contact"
-          }
+            url: "/products/keychains/contact",
+          },
         },
       },
       CardsSection: [
         {
-          imagePath: "https://rukminim2.flixcart.com/image/850/1000/xif0q/key-chain/o/h/4/new-design-radha-krishna-and-chhota-krishna-rubber-keyring-original-imagqtgncgqsxrra.jpeg?q=90&crop=false",
+          imagePath:
+            "https://rukminim2.flixcart.com/image/850/1000/xif0q/key-chain/o/h/4/new-design-radha-krishna-and-chhota-krishna-rubber-keyring-original-imagqtgncgqsxrra.jpeg?q=90&crop=false",
           // quotationLInk: "/products/keychain1",
-          title: "Radha Krishna Keychain"
+          title: "Radha Krishna Keychain",
         },
         {
           imagePath: "/rubberkeychain/rubber2.png",
           // quotationLInk: "/products/keychain2",
-          title: "god"
+          title: "god",
+        },
+        {
+          imagePath: "/rubberkeychain/rubber2.png",
+          // quotationLInk: "/products/keychain2",
+          title: "god",
+        },
+        {
+          imagePath: "/rubberkeychain/rubber2.png",
+          // quotationLInk: "/products/keychain2",
+          title: "god",
+        },
+        {
+          imagePath: "/rubberkeychain/rubber2.png",
+          // quotationLInk: "/products/keychain2",
+          title: "god",
+        },
+        {
+          imagePath: "/rubberkeychain/rubber2.png",
+          // quotationLInk: "/products/keychain2",
+          title: "god",
+        },
+        {
+          imagePath: "/rubberkeychain/rubber2.png",
+          // quotationLInk: "/products/keychain2",
+          title: "god",
+        },
+        {
+          imagePath: "/rubberkeychain/rubber2.png",
+          // quotationLInk: "/products/keychain2",
+          title: "god",
+        },
+        {
+          imagePath: "/rubberkeychain/rubber2.png",
+          // quotationLInk: "/products/keychain2",
+          title: "god",
+        },
+        {
+          imagePath: "/rubberkeychain/rubber2.png",
+          // quotationLInk: "/products/keychain2",
+          title: "god",
+        },
+        {
+          imagePath: "/rubberkeychain/rubber2.png",
+          // quotationLInk: "/products/keychain2",
+          title: "god",
         },
       ],
     },
@@ -52,24 +98,24 @@ const Layout = ({ children }) => {
         links: {
           ExpressQuote: {
             text: "Express Quote",
-            url: "/products/bags/express-quote"
+            url: "/products/bags/express-quote",
           },
           Contact: {
             text: "Contact Us",
-            url: "/products/bags/contact"
-          }
+            url: "/products/bags/contact",
+          },
         },
       },
       CardsSection: [
         {
           imagePath: "/Assets/bag1.jpg",
           // quotationLInk: "/products/bag1",
-          title: "Corporate Laptop Bag"
+          title: "Corporate Laptop Bag",
         },
         {
           imagePath: "/Assets/bag2.jpg",
           // quotationLInk: "/products/bag2",
-          title: "Canvas Tote Bag"
+          title: "Canvas Tote Bag",
         },
       ],
     },
@@ -84,24 +130,24 @@ const Layout = ({ children }) => {
         links: {
           ExpressQuote: {
             text: "Express Quote",
-            url: "/products/mugs/express-quote"
+            url: "/products/mugs/express-quote",
           },
           Contact: {
             text: "Contact Us",
-            url: "/products/mugs/contact"
-          }
+            url: "/products/mugs/contact",
+          },
         },
       },
       CardsSection: [
         {
           imagePath: "/Assets/mug1.jpg",
           // quotationLInk: "/products/mug1",
-          title: "Ceramic Mug"
+          title: "Ceramic Mug",
         },
         {
           imagePath: "/Assets/mug2.jpg",
           // quotationLInk: "/products/mug2",
-          title: "Travel Mug"
+          title: "Travel Mug",
         },
       ],
     },
@@ -146,13 +192,13 @@ const Layout = ({ children }) => {
   }
 
   return (
-    <div className="flex w-full h-[70vh] relative rounded-lg">
-      <ProductPageLayout 
-        category={category} 
+    <div className="flex w-full  relative rounded-lg">
+      <ProductPageLayout
+        category={category}
         routeData={routeData}
         sidebarData={CommonLeftSidebar[category]}
       >
-        <Image
+        <Image  
           src={routeData.HeroSection.imagePath}
           alt={routeData.HeroSection.title}
           fill

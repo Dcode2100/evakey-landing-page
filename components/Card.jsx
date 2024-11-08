@@ -1,8 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
+import ContactPage from './contactpage/ContactPage';
 
 const Card = ({ routeData }) => {
   return (
+    <>
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4 ml-[15px] md:p-6">
       {routeData?.CardsSection?.map((item, index) => (
         <div key={index} className="bg-white rounded-lg overflow-hidden shadow-md">
@@ -23,7 +25,9 @@ const Card = ({ routeData }) => {
           </div>
         </div>
       ))}
-    </div>
+      </div>
+      
+      </>
   );
 };
 

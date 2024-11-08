@@ -4,9 +4,10 @@ import "@styles/globals.css";
 import "@styles/BgAnimationSquare.scss";
 import "@styles/BgAnimationWaves.scss";
 import "@styles/contact.scss";
-import "@styles/Navbar.module.scss"
+import "@styles/Navbar.module.scss";
 
-import Navbar from "@components/Navbar"
+import Navbar from "@components/Navbar";
+import ContactPage from "@components/contactpage/ContactPage";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -34,8 +35,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar />
-        {children}
+        <div className="">
+          <div>
+            <Navbar />
+          </div>
+          {children}
+          <div>
+            <ContactPage />
+          </div>
+        </div>
       </body>
     </html>
   );
