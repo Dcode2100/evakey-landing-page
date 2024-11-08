@@ -3,10 +3,10 @@ import Image from 'next/image';
 
 const Card = ({ routeData }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4 ml-[15px] md:p-6">
       {routeData?.CardsSection?.map((item, index) => (
-        <div key={index} className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
-          <div className="relative h-[240px] w-full">
+        <div key={index} className="bg-white rounded-lg overflow-hidden shadow-md">
+          <div className="relative h-[180px] sm:h-[200px] md:h-[240px] w-full">
             <Image
               src={item.imagePath}
               alt="Product"
