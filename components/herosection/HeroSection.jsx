@@ -8,7 +8,7 @@ const HeroSection = () => {
   return (
     <>
       <section className="container mx-auto px-4 md:px-[7rem] min-h-screen">
-        <div className="grid lg:grid-cols-2 gap-6 pt-[102px]">
+        <div className="grid lg:grid-cols-2 gap-6 pt-[102px] mt-12">
           <div className="flex flex-col justify-center space-y-4 py-8">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
               Discover Amazing Keychains

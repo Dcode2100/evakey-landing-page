@@ -17,14 +17,14 @@ const Layout = ({ children }) => {
           "Keychains are a great way to keep your valuables secure and organized. Choose from a variety of styles and designs to suit your needs.",
         imagePath: "/Assets/f1.png",
         backgroundColor: "#fdc",
+        subtitle: "Feature your logo on keychains and let clients carry your brand wherever they go",
         links: {
           ExpressQuote: {
             text: "Express Quote",
-            url: "/products/keychains/express-quote",
+            url: "/",
           },
           Contact: {
             text: "Contact Us",
-            url: "/products/keychains/contact",
           },
         },
       },
@@ -98,11 +98,10 @@ const Layout = ({ children }) => {
         links: {
           ExpressQuote: {
             text: "Express Quote",
-            url: "/products/bags/express-quote",
+            url: "/",
           },
           Contact: {
             text: "Contact Us",
-            url: "/products/bags/contact",
           },
         },
       },
@@ -130,11 +129,10 @@ const Layout = ({ children }) => {
         links: {
           ExpressQuote: {
             text: "Express Quote",
-            url: "/products/mugs/express-quote",
+            url: "/",
           },
           Contact: {
             text: "Contact Us",
-            url: "/products/mugs/contact",
           },
         },
       },
