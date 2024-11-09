@@ -1,34 +1,43 @@
 import React from 'react';
 import Image from 'next/image';
-import ContactPage from './contactpage/ContactPage';
+import { ArrowRight } from 'lucide-react';
 
 const Card = ({ routeData }) => {
   return (
     <>
-      <div>
-        <h1 className="font-bold lg:text-[25px] ">Shop by Products</h1>
+      <div className="mb-8">
+        <h1 className="font-bold lg:text-[25px]">Shop by Products</h1>
         <p className="text-sm">{routeData.HeroSection.subtitle}</p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4 p-4 ml-[15px] md:p-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {routeData?.CardsSection?.map((item, index) => (
           <div
             key={index}
-            className="bg-white rounded-lg overflow-hidden shadow-md"
+            className="group relative rounded-2xl overflow-hidden cursor-pointer hover:shadow-lg"
           >
-            <div className="relative h-[180px] sm:h-[200px] md:h-[240px] w-full">
-              <Image
-                src={item.imagePath}
-                alt="Product"
-                fill
-                className="object-contain p-4"
-              />
-            </div>
-            <div className="p-4 flex flex-col items-center">
-              {item.title && (
-                <h3 className="text-lg font-semibold text-center mb-2">
+            <div className="relative h-[300px] w-full">
+              <div 
+                className="absolute inset-x-4 top-4 bottom-16 rounded-xl"
+                style={{ backgroundColor: item.cardBgColor}}
+              >
+                <div className="relative w-full h-full p-6">
+                  <Image
+                    src={item.imagePath}
+                    alt={item.title}
+                    fill
+                    className="object-contain  "
+                  />
+                </div>
+              </div>
+              <div className="absolute bottom-4 inset-x-4 flex items-center ">
+                <h3 className="text-sm font-medium">
                   {item.title}
                 </h3>
-              )}
+                <ArrowRight 
+                  className="w-5 h-4 transition-transform group-hover:translate-x-1 ml-1" 
+                  strokeWidth={2}
+                />
+              </div>
             </div>
           </div>
         ))}

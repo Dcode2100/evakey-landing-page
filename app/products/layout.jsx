@@ -30,61 +30,21 @@ const Layout = ({ children }) => {
       },
       CardsSection: [
         {
-          imagePath:
-            "https://rukminim2.flixcart.com/image/850/1000/xif0q/key-chain/o/h/4/new-design-radha-krishna-and-chhota-krishna-rubber-keyring-original-imagqtgncgqsxrra.jpeg?q=90&crop=false",
-          // quotationLInk: "/products/keychain1",
+          imagePath:"/rubberkeychain/image-removebg-preview.png",
           title: "Radha Krishna Keychain",
+          cardBgColor: "#B0E0E6",
         },
         {
           imagePath: "/rubberkeychain/rubber2.png",
-          // quotationLInk: "/products/keychain2",
           title: "god",
+          cardBgColor: "#E1F1FF",
         },
         {
           imagePath: "/rubberkeychain/rubber2.png",
-          // quotationLInk: "/products/keychain2",
           title: "god",
+          cardBgColor: "#FFDAB9",
         },
-        {
-          imagePath: "/rubberkeychain/rubber2.png",
-          // quotationLInk: "/products/keychain2",
-          title: "god",
-        },
-        {
-          imagePath: "/rubberkeychain/rubber2.png",
-          // quotationLInk: "/products/keychain2",
-          title: "god",
-        },
-        {
-          imagePath: "/rubberkeychain/rubber2.png",
-          // quotationLInk: "/products/keychain2",
-          title: "god",
-        },
-        {
-          imagePath: "/rubberkeychain/rubber2.png",
-          // quotationLInk: "/products/keychain2",
-          title: "god",
-        },
-        {
-          imagePath: "/rubberkeychain/rubber2.png",
-          // quotationLInk: "/products/keychain2",
-          title: "god",
-        },
-        {
-          imagePath: "/rubberkeychain/rubber2.png",
-          // quotationLInk: "/products/keychain2",
-          title: "god",
-        },
-        {
-          imagePath: "/rubberkeychain/rubber2.png",
-          // quotationLInk: "/products/keychain2",
-          title: "god",
-        },
-        {
-          imagePath: "/rubberkeychain/rubber2.png",
-          // quotationLInk: "/products/keychain2",
-          title: "god",
-        },
+       
       ],
     },
     bag: {
@@ -94,7 +54,7 @@ const Layout = ({ children }) => {
         subDescription:
           "Whether you need a tote for your daily commute or a backpack for a weekend getaway, we have you covered.",
         imagePath: "/Assets/f2.png",
-        backgroundColor: "#e0e0e0",
+        backgroundColor: "#F0F8FF",
         links: {
           ExpressQuote: {
             text: "Express Quote",
@@ -108,13 +68,13 @@ const Layout = ({ children }) => {
       CardsSection: [
         {
           imagePath: "/Assets/bag1.jpg",
-          // quotationLInk: "/products/bag1",
           title: "Corporate Laptop Bag",
+          cardBgColor: "#FFE4E1",
         },
         {
           imagePath: "/Assets/bag2.jpg",
-          // quotationLInk: "/products/bag2",
           title: "Canvas Tote Bag",
+          cardBgColor: "#F0F8FF",
         },
       ],
     },
@@ -125,7 +85,7 @@ const Layout = ({ children }) => {
         subDescription:
           "Whether you're looking for a stylish mug for your morning coffee or a travel mug for your next road trip, we've got you covered.",
         imagePath: "/Assets/f3.png",
-        backgroundColor: "#4d4c4c",
+        backgroundColor: "#F0FFF0",
         links: {
           ExpressQuote: {
             text: "Express Quote",
@@ -139,13 +99,13 @@ const Layout = ({ children }) => {
       CardsSection: [
         {
           imagePath: "/Assets/mug1.jpg",
-          // quotationLInk: "/products/mug1",
           title: "Ceramic Mug",
+          cardBgColor: "#FFE4E1",
         },
         {
           imagePath: "/Assets/mug2.jpg",
-          // quotationLInk: "/products/mug2",
           title: "Travel Mug",
+          cardBgColor: "#F0F8FF",
         },
       ],
     },
