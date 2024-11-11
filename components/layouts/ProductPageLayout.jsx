@@ -3,7 +3,7 @@ import ProductSidebar from "../ProductSidebar";
 import Card from "../Card";
 import Image from "next/image";
 
-const ProductPageLayout = ({ category, routeData, sidebarData }) => {
+ const ProductPageLayout = ({ routeData, sidebarData, activeFilter, onFilterChange }) => {
   const handleScrollDown = () => {
     window.scrollTo({
       top: document.body.scrollHeight,
@@ -15,9 +15,9 @@ const ProductPageLayout = ({ category, routeData, sidebarData }) => {
     <div className="flex flex-col lg:flex-row mt-[60px] lg:mt-[90px] w-full min-h-[70vh] relative rounded-lg">
       <div className="leftside-absolute static lg:absolute lg:top-[50px] lg:left-[30px] bg-white h-auto lg:h-[100vh] w-full lg:w-[300px]">
         <ProductSidebar
-          category={category}
-          routeData={routeData}
           sidebarData={sidebarData}
+          onFilterChange={onFilterChange}
+          activeFilter={activeFilter}
         />
       </div>
       <div className="w-full">
@@ -55,7 +55,7 @@ const ProductPageLayout = ({ category, routeData, sidebarData }) => {
           </div>
         </div>
         <div className="p-4 lg:pl-[350px] top bg-gray-50 w-full min-h-[70vh]">
-          <Card routeData={routeData} />
+          <Card routeData={routeData} activeFilter={activeFilter} />
         </div>
       </div>
     </div>

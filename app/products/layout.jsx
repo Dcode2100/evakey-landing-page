@@ -30,16 +30,19 @@ const Layout = () => {
           imagePath:"/rubberkeychain/image-removebg-preview.png",
           title: "Radha Krishna Keychain",
           cardBgColor: "#B0E0E6",
+          type:'rubber'
         },
         {
           imagePath: "/rubberkeychain/rubber2.png",
           title: "god",
           cardBgColor: "#E1F1FF",
+          type:'rubber'
         },
         {
           imagePath: "/rubberkeychain/rubber2.png",
           title: "god",
           cardBgColor: "#FFDAB9",
+          type:'metal'
         },
        
       ],
@@ -112,29 +115,42 @@ const Layout = () => {
     keychains: {
       Title: "Keychains",
       Links: [
-        { title: "MetalKeychain", path: "/products/keychain1" },
-        { title: "PlasticKeychain", path: "/products/keychain2" },
+        { title: "All Keychains", filterValue: "all" },
+        { title: "Metal Keychains", filterValue: "metal" },
+        { title: "Rubber Keychains", filterValue: "rubber" },
       ],
     },
     bag: {
       Title: "Bags",
       Links: [
-        { title: "CorporateLaptopBag", path: "/products/bag1" },
-        { title: "CanvasToteBag", path: "/products/bag2" },
+        { title: "All Bags", filterValue: "all" },
+        { title: "Backpacks", filterValue: "backpack" },
+        { title: "Tote Bags", filterValue: "tote" },
+        { title: "Laptop Bags", filterValue: "laptop" },
+        { title: "Duffel Bags", filterValue: "duffel" }
       ],
     },
     promotionalitems: {
-      Title: "promotionalitems",
+      Title: "Promotional Items",
       Links: [
-        { title: "CeramicMug", path: "/products/mug1" },
-        { title: "TravelMug", path: "/products/mug2" },
+        { title: "All Items", filterValue: "all" },
+        { title: "Stationery", filterValue: "stationery" },
+        { title: "Drinkware", filterValue: "drinkware" },
+        { title: "Tech Accessories", filterValue: "tech" },
+        { title: "Apparel", filterValue: "apparel" },
+        { title: "Office Supplies", filterValue: "office" }
       ],
-    },
+    }
   };
 
   const path = usePathname();
   const category = path.split("/")[2];
   const [routeData, setRouteData] = useState(productCategories[category]);
+  const [activeFilter, setActiveFilter] = useState('all');
+
+  const handleFilterChange = (filterValue) => {
+    setActiveFilter(filterValue);
+  };
 
   useEffect(() => {
     if (category && productCategories[category]) {
@@ -147,11 +163,13 @@ const Layout = () => {
   }
 
   return (
-    <div className="flex w-full  relative rounded-lg">
+    <div className="flex w-full relative rounded-lg">
       <ProductPageLayout
         category={category}
         routeData={routeData}
         sidebarData={CommonLeftSidebar[category]}
+        activeFilter={activeFilter}
+        onFilterChange={handleFilterChange}
       >
         <Image  
           src={routeData.HeroSection.imagePath}
