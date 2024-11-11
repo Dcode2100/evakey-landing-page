@@ -1,7 +1,7 @@
 import React from 'react'
 import BgAnimationWaves from "../contactpage/BgAnimationWaves";
 
-const ButtonWave = ({ title, onClick }) => {
+const ButtonWave = ({ title }) => {
     return (
         <div className=" relative md:w-max max-md:w-full md:px-12 hover:opacity-70 transition-opacity duration-200 cursor-pointer py-2 px-4 ">
             <BgAnimationWaves />

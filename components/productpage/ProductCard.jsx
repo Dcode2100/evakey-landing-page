@@ -24,19 +24,19 @@ const ProductCard = ({ products }) => {
             onMouseLeave={handleProductLeave}
           >
             <div className="relative h-[15rem]">
-              <Image 
+              <Image
                 src={`/rubberkeychain/${product.image}`}
                 alt={product.name}
                 fill
                 className="h-auto w-full cursor-pointer rounded"
               />
 
-              {/* {hoveredProduct === product && (
+              {hoveredProduct === product && (
                 <div className="absolute inset-0  bg-opacity-80 text-white p-4 text-center transition-opacity h-full">
                   <h3 className="text-lg font-bold mb-2">{product.name}</h3>
                   <p>{product.description}</p>
                 </div>
-              )} */}
+              )}
             </div>
           </div>
         ))}

@@ -1,13 +1,10 @@
 "use client";
-import { Contact } from "lucide-react";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import ProductPageLayout from "@components/layouts/ProductPageLayout";
-import ProductCategory from "@components/product-category/Productcategory";
-import PromotionalItems from "./promotionalitems/page";
 
-const Layout = ({ children }) => {
+const Layout = () => {
   const productCategories = {
     keychains: {
       HeroSection: {
