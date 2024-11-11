@@ -1,7 +1,7 @@
 "use client";
-import React, { useState, useMemo } from 'react';
-import Image from 'next/image';
-import styles from "@styles/Navbar.module.scss"
+import React, { useState, useMemo } from "react";
+import Image from "next/image";
+import styles from "@styles/Navbar.module.scss";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
@@ -10,18 +10,28 @@ const Navbar = () => {
   const pathname = usePathname();
   const [hoveredPath, setHoveredPath] = useState(pathname);
 
-  const navItems = useMemo(() => [
-    { path: "/", name: "Home" },
-    { path: "/products/bag", name: "Products" },
-  ], []);
+  const navItems = useMemo(
+    () => [
+      { path: "/", name: "Home" },
+      { path: "/products/bag", name: "Products" },
+    ],
+    []
+  );
 
   return (
-    <nav className='navbar flex justify-between items-center py-[1.5rem] md:py-[1.5rem] max-xs:px-[1.5rem] md:fixed top-0 w-full bg-transparent bg-white px-6 md:px-[7rem] z-[100]'>
-      <Link href='/' aria-label="Homepage">
-        <Image className="brand_logo max-md:top-0.5" src="/evakey_logo.svg" width={200} height={80} quality={100} alt='evakeylogo' />
+    <nav className="navbar flex justify-between items-center py-[1.5rem] md:py-[1.5rem] max-xs:px-[1.5rem] md:fixed top-0 w-full bg-transparent bg-white px-6 md:px-[7rem] z-[100]">
+      <Link href="/" aria-label="Homepage">
+        <Image
+          className="brand_logo max-md:top-0.5"
+          src="/evakey/evakey_logo.svg"
+          width={200}
+          height={80}
+          quality={100}
+          alt="evakeylogo"
+        />
       </Link>
 
-      <div className='flex text-black space-x-4'>
+      <div className="flex text-black space-x-4">
         <div className="border border-stone-800/90 p-[0.4rem] max-md:hidden rounded-lg sticky top-4 z-[100] bg-stone-900/80 backdrop-blur-md">
           <nav className="flex gap-2 relative justify-start w-full z-[100] rounded-lg">
             <ul className="flex space-x-4">
@@ -31,7 +41,9 @@ const Navbar = () => {
                 return (
                   <li key={item.path}>
                     <Link
-                      className={`px-4 py-2 rounded-md text-sm lg:text-base relative no-underline duration-300 ease-in ${isActive ? "text-zinc-100" : "text-zinc-400"}`}
+                      className={`px-4 py-2 rounded-md text-sm lg:text-base relative no-underline duration-300 ease-in ${
+                        isActive ? "text-zinc-100" : "text-zinc-400"
+                      }`}
                       data-active={isActive}
                       href={item.path}
                       onMouseOver={() => setHoveredPath(item.path)}
@@ -54,7 +66,7 @@ const Navbar = () => {
         </div>
         <div className="md:hidden flex items-center">
           <button
-            className={`${styles.box} ${menuActive ? styles.active : ''}`}
+            className={`${styles.box} ${menuActive ? styles.active : ""}`}
             onClick={() => setMenuActive(!menuActive)}
             type="button"
             aria-label="Toggle menu"
@@ -66,9 +78,15 @@ const Navbar = () => {
         </div>
       </div>
       <aside
-        className={`${styles.mobile} ${menuActive ? styles.on : styles.off} md:hidden bg-opacity-20`}
+        className={`${styles.mobile} ${
+          menuActive ? styles.on : styles.off
+        } md:hidden bg-opacity-20`}
       >
-        <div className={`flex-col md:hidden gap-3 justify-end ${menuActive && "flex"} text-right m-0 relative z-10`}>
+        <div
+          className={`flex-col md:hidden gap-3 justify-end ${
+            menuActive && "flex"
+          } text-right m-0 relative z-10`}
+        >
           {navItems.map((item) => (
             <Link key={item.path} href={item.path}>
               <div

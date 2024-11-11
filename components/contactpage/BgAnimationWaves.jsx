@@ -2,7 +2,7 @@ import React from 'react'
 
 const BgAnimationWaves = ({label,className}) => {
     return (
-        <section className='wave-animation'>
+        <section className='wave-animation Z-10'>
             <text className={`${className} text-label`}>{label}</text>
             <div className='air air1'></div>
             <div className='air air2'></div>

@@ -35,7 +35,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="">
+        <div className="relative w-[100vw] overflow-hidden">
           <div>
             <Navbar />
           </div>
