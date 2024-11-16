@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import ProductPageLayout from "@components/layouts/ProductPageLayout";
+import Cart from "@components/Cart";
 
 const Layout = () => {
   const productCategories = {
@@ -116,8 +117,27 @@ const Layout = () => {
       Title: "Keychains",
       Links: [
         { title: "All Keychains", filterValue: "all" },
-        { title: "Metal Keychains", filterValue: "metal" },
-        { title: "Rubber Keychains", filterValue: "rubber" },
+        { 
+          title: "Metal Keychains", 
+          filterValue: "metal",
+          subLinks: [
+            { title: "Aluminum Keychains", filterValue: "metal-aluminum" },
+            { title: "Brass Keychains", filterValue: "metal-brass" },
+            { title: "Steel Keychains", filterValue: "metal-steel" },
+            { title: "Chrome Plated", filterValue: "metal-chrome" },
+            { title: "Gold Plated", filterValue: "metal-gold" }
+          ]
+        },
+        { 
+          title: "Rubber Keychains", 
+          filterValue: "rubber",
+          subLinks: [
+            { title: "Silicon Keychains", filterValue: "rubber-silicon" },
+            { title: "PVC Keychains", filterValue: "rubber-pvc" },
+            { title: "Soft Rubber", filterValue: "rubber-soft" },
+            { title: "Hard Rubber", filterValue: "rubber-hard" }
+          ]
+        },
       ],
     },
     bag: {
@@ -147,9 +167,20 @@ const Layout = () => {
   const category = path.split("/")[2];
   const [routeData, setRouteData] = useState(productCategories[category]);
   const [activeFilter, setActiveFilter] = useState('all');
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
 
   const handleFilterChange = (filterValue) => {
     setActiveFilter(filterValue);
+  };
+
+  const handleAddToCart = (item) => {
+    setCartItems([...cartItems, item]);
+    setIsCartOpen(true);
+  };
+
+  const handleRemoveFromCart = (itemToRemove) => {
+    setCartItems(cartItems.filter(item => item !== itemToRemove));
   };
 
   useEffect(() => {
@@ -170,6 +201,7 @@ const Layout = () => {
         sidebarData={CommonLeftSidebar[category]}
         activeFilter={activeFilter}
         onFilterChange={handleFilterChange}
+        onAddToCart={handleAddToCart}
       >
         <Image  
           src={routeData.HeroSection.imagePath}
@@ -178,6 +210,13 @@ const Layout = () => {
           className="object-cover rounded-lg"
         />
       </ProductPageLayout>
+      
+      <Cart
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
+        cartItems={cartItems}
+        removeFromCart={handleRemoveFromCart}
+      />
     </div>
   );
 };

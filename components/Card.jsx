@@ -1,18 +1,21 @@
 import React from "react";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 
-const Card = ({ routeData, activeFilter }) => {
-  const filteredCards = routeData.CardsSection.filter(card => {
-    if (activeFilter === 'all') return true;
+const Card = ({ routeData, activeFilter, onAddToCart }) => {
+  const filteredCards = routeData.CardsSection.filter((card) => {
+    if (activeFilter === "all") return true;
     return card.type === activeFilter;
   });
 
   return (
     <>
       <div className="mb-12 text-center">
-        <h1 className="font-bold text-3xl md:text-4xl mb-3 text-gray-800">Shop by Products</h1>
-        <p className="text-gray-600 text-lg">{routeData.HeroSection.subtitle}</p>
+        <h1 className="font-bold text-3xl md:text-4xl mb-3 text-gray-800">
+          Shop by Products
+        </h1>
+        <p className="text-gray-600 text-lg">
+          {routeData.HeroSection.subtitle}
+        </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -25,9 +28,10 @@ const Card = ({ routeData, activeFilter }) => {
               {/* Card Background with Gradient Overlay */}
               <div
                 className="absolute inset-x-4 top-4 bottom-16 rounded-xl border border-gray-100 shadow-lg transform transition-transform duration-300 group-hover:scale-[1.02]"
-                style={{ 
+                style={{
                   backgroundColor: card.cardBgColor,
-                  backgroundImage: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)'
+                  backgroundImage:
+                    "linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)",
                 }}
               >
                 {/* Image Container */}
@@ -48,10 +52,12 @@ const Card = ({ routeData, activeFilter }) => {
                     <h3 className="text-lg font-semibold text-gray-800 group-hover:text-indigo-600 transition-colors duration-300">
                       {card.title}
                     </h3>
-                    <ArrowRight
-                      className="w-5 h-5 text-indigo-600 transform transition-all duration-300 group-hover:translate-x-1 opacity-0 group-hover:opacity-100"
-                      strokeWidth={2}
-                    />
+                    <button
+                      onClick={() => onAddToCart(card)}
+                      className="px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                    >
+                      Add
+                    </button>
                   </div>
                 </div>
               </div>
@@ -63,58 +69,4 @@ const Card = ({ routeData, activeFilter }) => {
   );
 };
 
-export default Card;{/*
-  import React from "react";
-import Image from "next/image";
-import { ArrowRight } from "lucide-react";
-
-const Card = ({ routeData, activeFilter }) => {
-  const filteredCards = routeData.CardsSection.filter(card => {
-    if (activeFilter === 'all') return true;
-    return card.type === activeFilter;
-  });
-
-  return (
-    <>
-      <div className="mb-8">
-        <h1 className="font-bold lg:text-[25px]">Shop by Products</h1>
-        <p className="text-sm">{routeData.HeroSection.subtitle}</p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredCards.map((card, index) => (
-          <div
-            key={index}
-            className="group relative rounded-2xl overflow-hidden cursor-pointer hover:shadow-lg"
-          >
-            <div className="relative h-[300px] w-full">
-              <div
-                className="absolute inset-x-4 top-4 bottom-16 rounded-xl border-4 "
-                style={{ backgroundColor: card.cardBgColor }}
-              >
-                <div className="relative w-full h-full p-6">
-                  <Image
-                    src={card.imagePath}
-                    alt={card.title}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              </div>
-              <div className="absolute bottom-4 inset-x-4 flex items-center ">
-                <h3 className="text-sm font-medium">{card.title}</h3>
-                <ArrowRight
-                  className="w-5 h-4 transition-transform group-hover:translate-x-1 ml-1"
-                  strokeWidth={2}
-                />
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </>
-  );
-};
-
 export default Card;
- */}
