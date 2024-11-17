@@ -2,7 +2,7 @@ import React from 'react';
 
 const ProductSidebar = ({ sidebarData, onFilterChange, activeFilter }) => {
   return (
-    <aside className="bg-white rounded-xl shadow-lg p-6 md:m-6 border border-gray-200">
+    <aside className="bg-white rounded-xl shadow-lg p-6 md:m-6 ">
       {/* Header Section */}
       <div className="pb-5 border-b border-gray-200">
         <h1 className="font-bold text-2xl text-blue-700 mb-2">Shop by</h1>

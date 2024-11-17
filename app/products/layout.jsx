@@ -36,7 +36,7 @@ const Layout = () => {
         {
           imagePath: "/rubberkeychain/rubber2.png",
           title: "god",
-          cardBgColor: "#E1F1FF",
+          cardBgColor: "#5680a7",
           type:'rubber'
         },
         {

@@ -145,6 +145,11 @@ const ContactPage = () => {
               name="phone"
             />
           </div>
+
+          {/* Quotation */}
+          <p className="text-sm font-extralight">Your Quotation</p>
+          
+
           <div className="mb-4">
             <textarea
               name="message"

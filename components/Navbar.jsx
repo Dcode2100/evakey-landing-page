@@ -37,7 +37,6 @@ const Navbar = () => {
             <ul className="flex space-x-4">
               {navItems.map((item) => {
                 const isActive = item.path === pathname;
-
                 return (
                   <li key={item.path}>
                     <Link

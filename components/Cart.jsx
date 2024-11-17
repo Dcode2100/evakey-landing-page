@@ -1,7 +1,15 @@
+'use client'
 import React from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const Cart = ({ isOpen, onClose, cartItems, removeFromCart }) => {
+  const router = useRouter();
+
+  const handleQuotation = () => { 
+    router.push('/#contact');
+  }
+
   const itemCount = cartItems.length;
 
   return (
@@ -22,7 +30,7 @@ const Cart = ({ isOpen, onClose, cartItems, removeFromCart }) => {
       </div>
 
       {/* Cart Items */}
-      <div className="p-6 space-y-4 overflow-y-auto h-[calc(100vh-88px)]">
+      <div className="p-6 space-y-4 overflow-y-auto h-[calc(100vh-180px)]">
         {cartItems.length === 0 ? (
           <div className="text-center py-12 space-y-4">
             <svg className="w-16 h-16 mx-auto text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -59,8 +67,26 @@ const Cart = ({ isOpen, onClose, cartItems, removeFromCart }) => {
           ))
         )}
       </div>
+
+      {/* Action Buttons */}
+      <div className="absolute bottom-0 left-0 right-0 p-6 bg-gray-800 border-t border-gray-700">
+        <div className="flex gap-4">
+          <button
+            onClick={onClose}
+            className="flex-1 px-6 py-3 text-sm font-medium text-white bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors duration-200"
+          >
+            Close
+          </button>
+          <button
+            onClick={handleQuotation}
+            className="flex-1 px-6 py-3 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-500 transition-colors duration-200">
+            Quotation
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
+
 
 export default Cart; 
