@@ -1,10 +1,23 @@
 'use client'
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 const Cart = ({ isOpen, onClose, cartItems, removeFromCart }) => {
   const router = useRouter();
+
+  useEffect(() => {
+    // Add console log to verify cart items
+    console.log('Cart Items being saved:', cartItems);
+    
+    if (cartItems.length > 0) {
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+      
+      // Create and dispatch a custom event
+      const event = new CustomEvent('cartUpdated', { detail: cartItems });
+      window.dispatchEvent(event);
+    }
+  }, [cartItems]);
 
   const handleQuotation = () => { 
     router.push('/#contact');
@@ -13,8 +26,9 @@ const Cart = ({ isOpen, onClose, cartItems, removeFromCart }) => {
   const itemCount = cartItems.length;
 
   return (
-    <div className={`fixed right-0 top-0 h-full w-[400px] bg-gray-900 text-white shadow-2xl transform transition-all duration-300 ease-in-out z-50 
-      ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}`}>
+    <div className={`fixed right-0 top-0 h-full w-[400px] bg-gray-900 text-white shadow-2xl transform transition-all duration-300 ease-in-out z-[100] ${
+      isOpen ? 'translate-x-0' : 'translate-x-full'
+    }`}>
       
       {/* Cart Header */}
       <div className="flex items-center justify-between p-6 border-b border-gray-700 bg-gray-800">

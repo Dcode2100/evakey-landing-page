@@ -1,14 +1,14 @@
 import React from "react";
 import Image from "next/image";
 
-const Card = ({ routeData, activeFilter, onAddToCart }) => {
+const Card = ({ routeData, activeFilter, onAddToCart, isCartOpen }) => {
   const filteredCards = routeData.CardsSection.filter((card) => {
     if (activeFilter === "all") return true;
     return card.type === activeFilter;
   });
 
   return (
-    <>
+    <div className={`transition-all duration-300 ${isCartOpen ? 'pr-[400px]' : 'w-full'}`}>
       <div className="mb-12 text-center">
         <h1 className="font-bold text-3xl md:text-4xl mb-3 text-gray-800">
           Shop by Products
@@ -18,11 +18,15 @@ const Card = ({ routeData, activeFilter, onAddToCart }) => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div 
+        className={`grid grid-cols-1 md:grid-cols-2 ${
+          isCartOpen ? 'lg:grid-cols-2' : 'lg:grid-cols-3'
+        } gap-8 transition-all duration-300`}
+      >
         {filteredCards.map((card, index) => (
           <div
             key={index}
-            className="rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] bg-white"
+            className="rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] bg-white relative z-0"
           >
             <div className="relative h-[350px] w-full p-4">
               {/* Card Background */}
@@ -62,7 +66,7 @@ const Card = ({ routeData, activeFilter, onAddToCart }) => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

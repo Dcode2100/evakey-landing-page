@@ -170,17 +170,29 @@ const Layout = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
 
+  useEffect(() => {
+    const savedCartItems = localStorage.getItem('cartItems');
+    if (savedCartItems) {
+      const parsedItems = JSON.parse(savedCartItems);
+      setCartItems(parsedItems);
+    }
+  }, []);
+
   const handleFilterChange = (filterValue) => {
     setActiveFilter(filterValue);
   };
 
   const handleAddToCart = (item) => {
-    setCartItems([...cartItems, item]);
+    const updatedCart = [...cartItems, item];
+    setCartItems(updatedCart);
+    localStorage.setItem('cartItems', JSON.stringify(updatedCart));
     setIsCartOpen(true);
   };
 
   const handleRemoveFromCart = (itemToRemove) => {
-    setCartItems(cartItems.filter(item => item !== itemToRemove));
+    const updatedCart = cartItems.filter(item => item !== itemToRemove);
+    setCartItems(updatedCart);
+    localStorage.setItem('cartItems', JSON.stringify(updatedCart));
   };
 
   useEffect(() => {
@@ -202,6 +214,7 @@ const Layout = () => {
         activeFilter={activeFilter}
         onFilterChange={handleFilterChange}
         onAddToCart={handleAddToCart}
+        isCartOpen={isCartOpen}
       >
         <Image  
           src={routeData.HeroSection.imagePath}

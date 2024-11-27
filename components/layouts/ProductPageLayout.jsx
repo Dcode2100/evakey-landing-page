@@ -3,7 +3,16 @@ import ProductSidebar from "../ProductSidebar";
 import Card from "../Card";
 import Image from "next/image";
 
- const ProductPageLayout = ({ routeData, sidebarData, activeFilter, onFilterChange, onAddToCart }) => {
+ const ProductPageLayout = ({ 
+  children, 
+  category, 
+  routeData, 
+  sidebarData, 
+  activeFilter, 
+  onFilterChange, 
+  onAddToCart,
+  isCartOpen 
+}) => {
   const handleScrollDown = () => {
     window.scrollTo({
       top: document.body.scrollHeight,
@@ -55,7 +64,12 @@ import Image from "next/image";
           </div>
         </div>
         <div className="p-4 lg:pl-[350px] top bg-gray-50 w-full min-h-[70vh]">
-          <Card routeData={routeData} activeFilter={activeFilter} onAddToCart={onAddToCart} />
+          <Card
+            routeData={routeData}
+            activeFilter={activeFilter}
+            onAddToCart={onAddToCart}
+            isCartOpen={isCartOpen}
+          />
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useState, useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
@@ -8,24 +8,55 @@ import ButtonWave from "../productpage/ButtonWave";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import BgAnimation from "./BgAnimationSquare";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const ContactPage = () => {
-
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
   });
 
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
-  const [modalMessage, setModalMessage] = useState('');
+  const [modalMessage, setModalMessage] = useState("");
+  const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
     AOS.init();
+  }, []);
+
+  useEffect(() => {
+    // Clear only cart items on page load/refresh
+    const handlePageRefresh = () => {
+      localStorage.removeItem("cartItems"); // Only remove cart items
+      setCartItems([]);
+    };
+
+    // Call it once when component mounts
+    handlePageRefresh();
+
+    // Add beforeunload event listener to handle page refresh
+    window.addEventListener('beforeunload', handlePageRefresh);
+
+    // Load initial cart items and set up cart update listener
+    const handleCartUpdate = (event) => {
+      console.log("Cart update event received:", event.detail);
+      const items = localStorage.getItem("cartItems");
+      if (items) {
+        setCartItems(JSON.parse(items));
+      }
+    };
+
+    window.addEventListener("cartUpdated", handleCartUpdate);
+
+    return () => {
+      window.removeEventListener('beforeunload', handlePageRefresh);
+      window.removeEventListener("cartUpdated", handleCartUpdate);
+    };
   }, []);
 
   const handleInputChange = (e) => {
@@ -33,24 +64,37 @@ const ContactPage = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your form submission logic here
+  
+    const form = document.getElementById("sheetdb-form");
+    const formdata = new FormData(form);
 
-    // Set formSubmitted to true
-    setFormSubmitted(true);
+    fetch("https://sheetdb.io/api/v1/lxgxqk4f57be4", {
+      method: "POST",
+      body: formdata,
+    })
+      .then((response) => response.json())
+      .then(() => {
+        setFormSubmitted(true);
 
-    // Set the modal message
-    setModalMessage('Thank you for contacting us. We will get back to you shortly.');
+        setModalMessage(
+          "Thank you for contacting us. We will get back to you shortly."
+        );
 
-    // Show the modal
-    setModalVisible(true);
+        setModalVisible(true);
 
-    console.log('Form data:', formData);
-  };
-
-
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
+      })
+    .catch ((error) => {
+      console.log("Error submitting form",error);
+      })
+ };
 
 
   return (
@@ -121,34 +165,67 @@ const ContactPage = () => {
           <Modal
             message={modalMessage}
             onClose={() => setModalVisible(false)}
-            className="w-[20rem] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
+            className="w-[20rem] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-black"
           />
         )}
-        <form onSubmit={handleSubmit} className="flex flex-col gap-[1.5rem]">
+        <form id="sheetdb-form" onSubmit={handleSubmit} className="flex flex-col gap-[1.5rem]">
           <div className="flex flex-col ">
             <Input
               className="text-sm font-extralight"
               label="Name"
               handleInputChange={handleInputChange}
               name="name"
+              value={formData.name}
             />
             <Input
               className="text-sm font-extralight"
               label="Email"
               handleInputChange={handleInputChange}
               name="email"
+              value={formData.email}
             />
             <Input
               className="text-sm font-extralight"
               label="Phone"
               handleInputChange={handleInputChange}
-              name="phone"
+              name= "phone"
+              value={formData.phone}
             />
           </div>
 
           {/* Quotation */}
           <p className="text-sm font-extralight">Your Quotation</p>
-          
+
+          <div className="flex flex-wrap gap-4 p-4 border-2 border-[#7a7a7a] rounded-lg min-h-[100px]">
+            {cartItems.length === 0 ? (
+              <p className="text-sm text-gray-400">No items in cart</p>
+            ) : (
+              cartItems.map((item, index) => (
+                <div key={index} className="relative w-20 h-20 group">
+                  <Image
+                    src={item.imagePath}
+                    alt={item.title}
+                    fill
+                    className="object-contain"
+                  />
+                  <button
+                    onClick={() => {
+                      const updatedCart = cartItems.filter((_, i) => i !== index);
+                      setCartItems(updatedCart);
+                      localStorage.setItem("cartItems", JSON.stringify(updatedCart));
+                      
+                      // Dispatch cart update event
+                      const event = new CustomEvent("cartUpdated", { detail: updatedCart });
+                      window.dispatchEvent(event);
+                    }}
+                    className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    ×
+                  </button>
+                </div>
+              ))
+            )}
+          </div>
 
           <div className="mb-4">
             <textarea
@@ -156,6 +233,7 @@ const ContactPage = () => {
               className="hide-scrollbar border-b-2 w-full text-secondary font-light bg-transparent border-[#7a7a7a] focus:border-[#d5d5d5] focus:outline-none overflow-y-aut0 py-1 h-20 md:h-30 transition-all duration-300 hover:outline-none"
               onChange={handleInputChange}
               placeholder="Type your message here"
+              value={formData.message}
               required
             ></textarea>
           </div>
@@ -179,6 +257,6 @@ const ContactPage = () => {
       /> */}
     </section>
   );
-}
-
-export default ContactPage
+};
+  
+export default ContactPage;
