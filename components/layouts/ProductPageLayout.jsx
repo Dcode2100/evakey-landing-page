@@ -4,8 +4,6 @@ import Card from "../Card";
 import Image from "next/image";
 
  const ProductPageLayout = ({ 
-  children, 
-  category, 
   routeData, 
   sidebarData, 
   activeFilter, 

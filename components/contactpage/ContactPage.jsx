@@ -30,19 +30,18 @@ const ContactPage = () => {
   }, []);
 
   useEffect(() => {
-    // Clear only cart items on page load/refresh
+    // Clear cart items on page load/refresh
     const handlePageRefresh = () => {
-      localStorage.removeItem("cartItems"); // Only remove cart items
+      localStorage.removeItem("cartItems");
       setCartItems([]);
     };
 
-    // Call it once when component mounts
     handlePageRefresh();
 
-    // Add beforeunload event listener to handle page refresh
-    window.addEventListener('beforeunload', handlePageRefresh);
+    // Add beforeunload event listener
+    window.addEventListener("beforeunload", handlePageRefresh);
 
-    // Load initial cart items and set up cart update listener
+    // Load initial cart items and set up listener
     const handleCartUpdate = (event) => {
       console.log("Cart update event received:", event.detail);
       const items = localStorage.getItem("cartItems");
@@ -54,7 +53,7 @@ const ContactPage = () => {
     window.addEventListener("cartUpdated", handleCartUpdate);
 
     return () => {
-      window.removeEventListener('beforeunload', handlePageRefresh);
+      window.removeEventListener("beforeunload", handlePageRefresh);
       window.removeEventListener("cartUpdated", handleCartUpdate);
     };
   }, []);
@@ -66,7 +65,7 @@ const ContactPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  
+
     const form = document.getElementById("sheetdb-form");
     const formdata = new FormData(form);
 
@@ -77,13 +76,10 @@ const ContactPage = () => {
       .then((response) => response.json())
       .then(() => {
         setFormSubmitted(true);
-
         setModalMessage(
           "Thank you for contacting us. We will get back to you shortly."
         );
-
         setModalVisible(true);
-
         setFormData({
           name: "",
           email: "",
@@ -91,19 +87,18 @@ const ContactPage = () => {
           message: "",
         });
       })
-    .catch ((error) => {
-      console.log("Error submitting form",error);
-      })
- };
-
+      .catch((error) => {
+        console.log("Error submitting form", error);
+      });
+  };
 
   return (
     <section
       id="contact"
-      className=" h-[100vh]  relative max-md:h-max max-md:pb-[5rem] w-full  md:flex md:justify-between max-md:pt-[4rem] md:pt-[8rem]  px-[3rem] max-sm:px-[2rem] lg:px-[7rem] bg-transparent text-white overflow-hidden "
+      className="h-[100vh] relative max-md:h-max max-md:pb-[5rem] w-full md:flex md:justify-between max-md:pt-[4rem] md:pt-[8rem] px-[3rem] max-sm:px-[2rem] lg:px-[7rem] bg-transparent text-white overflow-hidden"
     >
       <BgAnimation className="bg-text"></BgAnimation>
-      <div className="contact-details flex flex-col gap-[2rem] md:pt-[4rem] max-md:mb-[7rem] md:max-w-[40%] tracking-widest leading-5 ">
+      <div className="contact-details flex flex-col gap-[2rem] md:pt-[4rem] max-md:mb-[7rem] md:max-w-[40%] tracking-widest leading-5">
         <div
           data-aos="fade-right"
           data-aos-anchor-placement="center-bottom"
@@ -117,12 +112,11 @@ const ContactPage = () => {
             reality. Get in touch with us today.
           </p>
         </div>
-
         <div
           data-aos="fade-right"
           data-aos-anchor-placement="center-bottom"
           data-aos-duration="1700"
-          className="email flex flex-col gap-[1rem] "
+          className="email flex flex-col gap-[1rem]"
         >
           <h3 className="text-3xl font-medium">Email</h3>
           <a
@@ -132,7 +126,6 @@ const ContactPage = () => {
             kshemkariplastic@gmail.com
           </a>
         </div>
-
         <div
           data-aos="fade-right"
           data-aos-anchor-placement="center-bottom"
@@ -168,8 +161,12 @@ const ContactPage = () => {
             className="w-[20rem] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-black"
           />
         )}
-        <form id="sheetdb-form" onSubmit={handleSubmit} className="flex flex-col gap-[1.5rem]">
-          <div className="flex flex-col ">
+        <form
+          id="sheetdb-form"
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-[1.5rem]"
+        >
+          <div className="flex flex-col">
             <Input
               className="text-sm font-extralight"
               label="Name"
@@ -188,34 +185,37 @@ const ContactPage = () => {
               className="text-sm font-extralight"
               label="Phone"
               handleInputChange={handleInputChange}
-              name= "phone"
+              name="phone"
               value={formData.phone}
             />
           </div>
-
-          {/* Quotation */}
           <p className="text-sm font-extralight">Your Quotation</p>
-
           <div className="flex flex-wrap gap-4 p-4 border-2 border-[#7a7a7a] rounded-lg min-h-[100px]">
-            {cartItems.length === 0 ? (
-              <p className="text-sm text-gray-400">No items in cart</p>
-            ) : (
-              cartItems.map((item, index) => (
-                <div key={index} className="relative w-20 h-20 group">
+            {cartItems.map((item, index) => (
+              <div
+                key={index}
+                className="w-[10vb] group relative flex flex-col items-center"
+              >
+                <div className="relative w-20 h-20">
                   <Image
                     src={item.imagePath}
                     alt={item.title}
                     fill
-                    className="object-contain"
+                    className="object-contain pl-[7px]"
                   />
                   <button
                     onClick={() => {
-                      const updatedCart = cartItems.filter((_, i) => i !== index);
+                      const updatedCart = cartItems.filter(
+                        (_, i) => i !== index
+                      );
                       setCartItems(updatedCart);
-                      localStorage.setItem("cartItems", JSON.stringify(updatedCart));
-                      
-                      // Dispatch cart update event
-                      const event = new CustomEvent("cartUpdated", { detail: updatedCart });
+                      localStorage.setItem(
+                        "cartItems",
+                        JSON.stringify(updatedCart)
+                      );
+                      const event = new CustomEvent("cartUpdated", {
+                        detail: updatedCart,
+                      });
                       window.dispatchEvent(event);
                     }}
                     className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
@@ -223,40 +223,29 @@ const ContactPage = () => {
                     ×
                   </button>
                 </div>
-              ))
-            )}
+                <p className="text-sm mt-2 break-words flex justify-center text-center">
+                  {item.title}
+                </p>
+              </div>
+            ))}
           </div>
-
           <div className="mb-4">
             <textarea
               name="message"
-              className="hide-scrollbar border-b-2 w-full text-secondary font-light bg-transparent border-[#7a7a7a] focus:border-[#d5d5d5] focus:outline-none overflow-y-aut0 py-1 h-20 md:h-30 transition-all duration-300 hover:outline-none"
+              className="hide-scrollbar border-b-2 w-full text-secondary font-light bg-transparent border-[#7a7a7a] focus:border-[#d5d5d5] focus:outline-none overflow-y-auto py-1 h-20 md:h-30 transition-all duration-300"
               onChange={handleInputChange}
               placeholder="Type your message here"
               value={formData.message}
               required
             ></textarea>
           </div>
-
           <div className="w-full md:flex md:justify-end relative">
             <ButtonWave title={"Submit"} />
           </div>
         </form>
       </div>
-      {/* <Image
-        priority={1}
-        className={`${styles.bg} select-none`}
-        alt="background polygons"
-        src={bgContact}
-      />
-      <Image
-        priority={1}
-        className={`${styles.bgRight} md:block hidden select-none`}
-        alt="background polygons"
-        src={bgContact}
-      /> */}
     </section>
   );
 };
-  
+
 export default ContactPage;

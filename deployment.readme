@@ -1,0 +1,54 @@
+
+***********************************************************************************************
+
+Project Console: https://console.firebase.google.com/project/evakey-d1ea6/overview
+Hosting URL: https://evakey-d1ea6.web.app
+
+
+***********************************************************************************************
+
+Regular Deployment of the Next.js Project
+steps:
+
+1. npm run build
+2. firebase deploy --only hosting
+
+
+***********************************************************************************************
+Documentation for Static Deployment of the Next.js Project
+Below are the steps and corresponding terminal commands used to deploy the static version of the Next.js project using Firebase Hosting:
+
+1. Initialize Firebase Hosting
+Run the following command to set up Firebase Hosting in the project directory:
+
+firebase init hosting
+Choose the Firebase project (e.g., evakey-d1ea6).
+Specify the public directory as out.
+Do not configure as a single-page app.
+Skip setting up automatic builds and deploys with GitHub.
+2. Build the Next.js Project
+Use the following command to create an optimized production build of the Next.js application:
+
+npm run build
+3. Export Static Files
+Ensure next.config.js includes:
+
+module.exports = {
+  output: 'export',
+};
+Run the export command:
+
+npm run export
+4. Deploy to Firebase Hosting
+Deploy the generated static files (in the out directory) to Firebase Hosting:
+
+firebase deploy
+Notes
+Ensure the out directory is specified as the public directory during Firebase setup.
+Resolve any warnings or errors before exporting (e.g., React Hook dependencies, output configuration in next.config.js).
+This concludes the static deployment process.
+
+
+
+
+
