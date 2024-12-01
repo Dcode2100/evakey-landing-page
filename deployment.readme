@@ -1,18 +1,16 @@
 
 ***********************************************************************************************
 
-Project Console: https://console.firebase.google.com/project/evakey-d1ea6/overview
-Hosting URL: https://evakey-d1ea6.web.app
-
-
-***********************************************************************************************
-
 Regular Deployment of the Next.js Project
 steps:
 
 1. npm run build
 2. firebase deploy --only hosting
 
+***********************************************************************************************
+
+Project Console: https://console.firebase.google.com/project/evakey-d1ea6/overview
+Hosting URL: https://evakey-d1ea6.web.app
 
 ***********************************************************************************************
 Documentation for Static Deployment of the Next.js Project
