@@ -69,6 +69,10 @@ const ContactPage = () => {
     const form = document.getElementById("sheetdb-form");
     const formdata = new FormData(form);
 
+    cartItems.forEach(item => {
+        formdata.append("items", item.title); 
+    });
+
     fetch("https://sheetdb.io/api/v1/lxgxqk4f57be4", {
       method: "POST",
       body: formdata,

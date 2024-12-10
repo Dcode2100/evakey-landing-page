@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -14,9 +18,15 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["./components/*"],
-      "@/*": ["./*"],
-      "@styles/*": ["./styles/*"]
+      "@components/*": [
+        "./components/*"
+      ],
+      "@/*": [
+        "./*"
+      ],
+      "@styles/*": [
+        "./styles/*"
+      ]
     },
     "plugins": [
       {
@@ -29,7 +39,10 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/products/layout.jsx"
+    "app/products/layout.jsx",
+    "dist/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

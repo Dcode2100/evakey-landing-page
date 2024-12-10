@@ -41,7 +41,7 @@ const HeroSection = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center">
             <div className="relative h-20 w-20 md:w-[90px]">
               <Image
-                src="/Assets/ipl.jpg"
+                src="/assets/ipl.jpg"
                 alt="Brand 1"
                 fill
                 className="object-contain"
