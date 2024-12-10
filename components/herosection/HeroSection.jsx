@@ -22,8 +22,8 @@ const HeroSection = () => {
             <div className="space-y-2">
               <h3 className="text-lg font-medium">About EVA KEY</h3>
               <p className="text-sm md:text-base text-zinc-500 dark:text-zinc-400">
-                We&apos;re a global keychain company providing high-quality, custom
-                keychains to customers worldwide.
+                We&apos;re a global keychain company providing high-quality,
+                custom keychains to customers worldwide.
               </p>
             </div>
           </div>
@@ -37,7 +37,9 @@ const HeroSection = () => {
 
       <div className="relative px-4 py-12">
         <div className="max-w-4xl mx-auto">
-          <h3 className="text-lg font-bold text-center mb-8">Brands That Trust Us</h3>
+          <h3 className="text-lg font-bold text-center mb-8">
+            Brands That Trust Us
+          </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center">
             <div className="relative h-20 w-20 md:w-[90px]">
               <Image
@@ -49,7 +51,7 @@ const HeroSection = () => {
             </div>
             <div className="relative h-20 w-20 md:w-[90px]">
               <Image
-                src="/Assets/abs.jpg"
+                src="/assets/abs.jpg"
                 alt="Brand 2"
                 fill
                 className="object-contain"
@@ -57,7 +59,7 @@ const HeroSection = () => {
             </div>
             <div className="relative h-20 w-20 md:w-[90px]">
               <Image
-                src="/Assets/hdfc.png"
+                src="/assets/hdfc.png"
                 alt="Brand 3"
                 fill
                 className="object-contain"
@@ -65,7 +67,7 @@ const HeroSection = () => {
             </div>
             <div className="relative h-20 w-20 md:w-[90px]">
               <Image
-                src="/Assets/disney.png"
+                src="/assets/disney.png"
                 alt="Brand 4"
                 fill
                 className="object-contain"

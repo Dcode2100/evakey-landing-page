@@ -13,9 +13,10 @@ const Layout = () => {
         description: "Variety of stylish and functional keychains.",
         subDescription:
           "Keychains are a great way to keep your valuables secure and organized. Choose from a variety of styles and designs to suit your needs.",
-        imagePath: "/Assets/f1.png",
+        imagePath: "/assets/f1.png",
         backgroundColor: "#fdc",
-        subtitle: "Feature your logo on keychains and let clients carry your brand wherever they go",
+        subtitle:
+          "Feature your logo on keychains and let clients carry your brand wherever they go",
         links: {
           ExpressQuote: {
             text: "Express Quote",
@@ -28,24 +29,23 @@ const Layout = () => {
       },
       CardsSection: [
         {
-          imagePath:"/rubberkeychain/image-removebg-preview.png",
+          imagePath: "/rubberkeychain/image-removebg-preview.png",
           title: "Radha Krishna Keychain",
           cardBgColor: "#B0E0E6",
-          type:'rubber'
+          type: "rubber",
         },
         {
           imagePath: "/rubberkeychain/rubber2.png",
           title: "god",
           cardBgColor: "#5680a7",
-          type:'rubber'
+          type: "rubber",
         },
         {
           imagePath: "/rubberkeychain/rubber2.png",
           title: "god",
           cardBgColor: "#FFDAB9",
-          type:'metal'
+          type: "metal",
         },
-       
       ],
     },
     bag: {
@@ -54,7 +54,7 @@ const Layout = () => {
         description: "Explore our collection of bags for every occasion.",
         subDescription:
           "Whether you need a tote for your daily commute or a backpack for a weekend getaway, we have you covered.",
-        imagePath: "/Assets/f2.png",
+        imagePath: "/assets/f2.png",
         backgroundColor: "#F0F8FF",
         links: {
           ExpressQuote: {
@@ -68,12 +68,12 @@ const Layout = () => {
       },
       CardsSection: [
         {
-          imagePath: "/Assets/bag1.jpg",
+          imagePath: "/assets/bag1.jpg",
           title: "Corporate Laptop Bag",
           cardBgColor: "#FFE4E1",
         },
         {
-          imagePath: "/Assets/bag2.jpg",
+          imagePath: "/assets/bag2.jpg",
           title: "Canvas Tote Bag",
           cardBgColor: "#F0F8FF",
         },
@@ -85,7 +85,7 @@ const Layout = () => {
         description: "Find the perfect mug for your coffee or tea.",
         subDescription:
           "Whether you're looking for a stylish mug for your morning coffee or a travel mug for your next road trip, we've got you covered.",
-        imagePath: "/Assets/f3.png",
+        imagePath: "/assets/f3.png",
         backgroundColor: "#F0FFF0",
         links: {
           ExpressQuote: {
@@ -99,12 +99,12 @@ const Layout = () => {
       },
       CardsSection: [
         {
-          imagePath: "/Assets/mug1.jpg",
+          imagePath: "/assets/mug1.jpg",
           title: "Ceramic Mug",
           cardBgColor: "#FFE4E1",
         },
         {
-          imagePath: "/Assets/mug2.jpg",
+          imagePath: "/assets/mug2.jpg",
           title: "Travel Mug",
           cardBgColor: "#F0F8FF",
         },
@@ -117,26 +117,26 @@ const Layout = () => {
       Title: "Keychains",
       Links: [
         { title: "All Keychains", filterValue: "all" },
-        { 
-          title: "Metal Keychains", 
+        {
+          title: "Metal Keychains",
           filterValue: "metal",
           subLinks: [
             { title: "Aluminum Keychains", filterValue: "metal-aluminum" },
             { title: "Brass Keychains", filterValue: "metal-brass" },
             { title: "Steel Keychains", filterValue: "metal-steel" },
             { title: "Chrome Plated", filterValue: "metal-chrome" },
-            { title: "Gold Plated", filterValue: "metal-gold" }
-          ]
+            { title: "Gold Plated", filterValue: "metal-gold" },
+          ],
         },
-        { 
-          title: "Rubber Keychains", 
+        {
+          title: "Rubber Keychains",
           filterValue: "rubber",
           subLinks: [
             { title: "Silicon Keychains", filterValue: "rubber-silicon" },
             { title: "PVC Keychains", filterValue: "rubber-pvc" },
             { title: "Soft Rubber", filterValue: "rubber-soft" },
-            { title: "Hard Rubber", filterValue: "rubber-hard" }
-          ]
+            { title: "Hard Rubber", filterValue: "rubber-hard" },
+          ],
         },
       ],
     },
@@ -147,7 +147,7 @@ const Layout = () => {
         { title: "Backpacks", filterValue: "backpack" },
         { title: "Tote Bags", filterValue: "tote" },
         { title: "Laptop Bags", filterValue: "laptop" },
-        { title: "Duffel Bags", filterValue: "duffel" }
+        { title: "Duffel Bags", filterValue: "duffel" },
       ],
     },
     promotionalitems: {
@@ -158,20 +158,20 @@ const Layout = () => {
         { title: "Drinkware", filterValue: "drinkware" },
         { title: "Tech Accessories", filterValue: "tech" },
         { title: "Apparel", filterValue: "apparel" },
-        { title: "Office Supplies", filterValue: "office" }
+        { title: "Office Supplies", filterValue: "office" },
       ],
-    }
+    },
   };
 
   const path = usePathname();
   const category = path.split("/")[2];
   const [routeData, setRouteData] = useState(productCategories[category]);
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [activeFilter, setActiveFilter] = useState("all");
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
-    const savedCartItems = localStorage.getItem('cartItems');
+    const savedCartItems = localStorage.getItem("cartItems");
     if (savedCartItems) {
       const parsedItems = JSON.parse(savedCartItems);
       setCartItems(parsedItems);
@@ -185,14 +185,14 @@ const Layout = () => {
   const handleAddToCart = (item) => {
     const updatedCart = [...cartItems, item];
     setCartItems(updatedCart);
-    localStorage.setItem('cartItems', JSON.stringify(updatedCart));
+    localStorage.setItem("cartItems", JSON.stringify(updatedCart));
     setIsCartOpen(true);
   };
 
   const handleRemoveFromCart = (itemToRemove) => {
-    const updatedCart = cartItems.filter(item => item !== itemToRemove);
+    const updatedCart = cartItems.filter((item) => item !== itemToRemove);
     setCartItems(updatedCart);
-    localStorage.setItem('cartItems', JSON.stringify(updatedCart));
+    localStorage.setItem("cartItems", JSON.stringify(updatedCart));
   };
 
   useEffect(() => {
@@ -216,14 +216,14 @@ const Layout = () => {
         onAddToCart={handleAddToCart}
         isCartOpen={isCartOpen}
       >
-        <Image  
+        <Image
           src={routeData.HeroSection.imagePath}
           alt={routeData.HeroSection.title}
           fill
           className="object-cover rounded-lg"
         />
       </ProductPageLayout>
-      
+
       <Cart
         isOpen={isCartOpen}
         onClose={() => setIsCartOpen(false)}

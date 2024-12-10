@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 const ProductCategory = () => {
   const router = useRouter();
@@ -12,26 +12,25 @@ const ProductCategory = () => {
       name: "KeyChains",
       bgColor: "bg-red-300",
       extracolors: "opacity-80 bg-black",
-      image: "/Assets/promotional-keyrings.png",
-      link: "/products/keychains"
+      image: "/assets/promotional-keyrings.png",
+      link: "/products/keychains",
     },
     {
       id: 2,
       name: "Bag",
       bgColor: "bg-green-300",
       extracolors: "opacity-80 bg-black",
-      image: "/Assets/p754503.avif",
-      link: "/products/bag"
+      image: "/assets/p754503.avif",
+      link: "/products/bag",
     },
     {
       id: 3,
       name: "promotionalitems",
       bgColor: "bg-blue-300",
       extracolors: "opacity-80 bg-black",
-      image: "/Assets/card.jpg",
-      link: "/products/promotionalitems"
+      image: "/assets/card.jpg",
+      link: "/products/promotionalitems",
     },
-   
   ];
 
   return (
@@ -49,7 +48,7 @@ const ProductCategory = () => {
             className={`group aspect-square relative w-full rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:scale-102 overflow-hidden`}
             onClick={() => router.push(data.link)}
           >
-            {data?.image && ( 
+            {data?.image && (
               <Image
                 className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                 src={data.image}
