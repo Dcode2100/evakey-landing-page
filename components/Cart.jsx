@@ -19,6 +19,8 @@ const Cart = ({ isOpen, onClose, cartItems, removeFromCart }) => {
     }
   }, [cartItems]);
 
+  
+
   const handleQuotation = () => {
     router.push("/#contact");
   };
@@ -53,6 +55,7 @@ const Cart = ({ isOpen, onClose, cartItems, removeFromCart }) => {
           </svg>
         </button>
       </div>
+      
 
       {/* Cart Items */}
       <div className="p-6 space-y-4 overflow-y-auto h-[calc(100vh-180px)]">

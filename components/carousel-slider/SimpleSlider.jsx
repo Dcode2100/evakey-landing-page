@@ -1,48 +1,43 @@
 "use client";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import { Datas } from "./Carouselimg";
 import Image from "next/image";
 
 const SimpleSlider = () => {
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 700,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    pauseOnHover: true,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          dots: false
-        }
-      }
-    ]
-  };
-
-
   return (
     <div className="w-full">
-      <Slider {...settings}>
+      <Swiper
+        modules={[Navigation, Pagination, Autoplay]}
+        spaceBetween={0}
+        slidesPerView={1}
+        navigation={true}
+        pagination={{ clickable: true }}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
+        loop={true}
+        className="swiper-container"
+      >
         {Datas.map((data, index) => (
-          <div key={index} className="relative aspect-square">
-            <Image
-              src={data.image}
-              alt={`Slide ${index + 1}`}
-              fill
-              className="object-contain rounded-xl"
-              priority={index === 0}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
-          </div>
+          <SwiperSlide key={index}>
+            <div className="relative aspect-square">
+              <Image
+                src={data.image}
+                alt={`Slide ${index + 1}`}
+                fill
+                className="object-contain rounded-xl"
+                priority={index === 0}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            </div>
+          </SwiperSlide>
         ))}
-      </Slider>
+      </Swiper>
     </div>
   );
 };

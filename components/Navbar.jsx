@@ -4,6 +4,7 @@ import Image from "next/image";
 import styles from "@styles/Navbar.module.scss";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Navbar = () => {
   const [menuActive, setMenuActive] = useState(false);
@@ -63,6 +64,9 @@ const Navbar = () => {
             </ul>
           </nav>
         </div>
+        <div>
+           <FaShoppingCart className=" cursor-pointer text-[2rem] text-black hover:text-gray-700 transition duration-200 transform hover:scale-110 hover:shadow-lg" />
+        </div>
         <div className="md:hidden flex items-center">
           <button
             className={`${styles.box} ${menuActive ? styles.active : ""}`}
@@ -71,7 +75,6 @@ const Navbar = () => {
             aria-label="Toggle menu"
           >
             <div className={styles.hamburguer}>
-              {/* Your hamburger menu content */}
             </div>
           </button>
         </div>
