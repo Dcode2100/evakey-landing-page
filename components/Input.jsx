@@ -1,42 +1,21 @@
 import React from 'react';
-import styled from 'styled-components';
 
-const InputContainer = styled.div`
-  /* margin-bottom: 1rem; */
-`;
-
-const StyledInput = styled.input`
- all: unset;
-  border-bottom: 1px solid #7a7a7a ;
-  transition: border-color 0.1s;
-  width: 100%;
-  padding: 1.5rem 0rem;
-  color: #fde3be; /* Text color */
-  background-color: transparent !important; /* Make the background transparent */
-  font-weight: 200;
- 
-
-
-  &:focus {
-    border-color: #d5d5d5;
-    /* Remove border: none; to keep the default focus border */
-  }
-
-  
-`;
-
-const Input = ({ label, handleInputChange, className,name }) => {
+const Input = ({ label, handleInputChange, className, name, value, type = "text" }) => {
     return (
-        <InputContainer>
-            <StyledInput
-                type="text"
+        <div className="space-y-2">
+            <label className="block text-sm font-medium text-primary font-opensans">
+                {label}
+            </label>
+            <input
+                type={type}
                 name={name}
-                className={className}
+                className={`w-full px-4 py-3 border-2 border-secondary/30 rounded-lg bg-white/80 backdrop-blur-sm text-primary font-opensans placeholder:text-secondary/60 focus:border-primary focus:outline-none transition-all duration-300 ${className || ''}`}
                 onChange={handleInputChange}
                 placeholder={label}
+                value={value}
                 required
             />
-        </InputContainer>
+        </div>
     );
 };
 

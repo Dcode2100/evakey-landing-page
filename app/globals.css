@@ -1,3 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #07484A;
+  --secondary-color: #70908B;
+  --background-color: #FDFBF8;
+  --primary-text-color: #07484A;
+  --secondary-text-color: #70908B;
+  --accent-color-1: #CAF3E5;
+  --accent-color-2: #E0EFF6;
+  --accent-color-3: #EEEBFF;
+  --accent-color-4: #FFF4E7;
+  --accent-color-5: #FDFBF8;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--background-color);
+  color: var(--primary-text-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+}
+
 @keyframes gradient-x {
   0%, 100% {
     background-size: 200% 200%;
@@ -19,8 +58,8 @@
 
 .swiper-button-next,
 .swiper-button-prev {
-  color: #ffffff;
-  background: rgba(0, 0, 0, 0.5);
+  color: var(--primary-color);
+  background: rgba(7, 72, 74, 0.1);
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -29,7 +68,7 @@
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(7, 72, 74, 0.2);
   transform: scale(1.1);
 }
 
@@ -40,13 +79,84 @@
 }
 
 .swiper-pagination-bullet {
-  background: #ffffff;
+  background: var(--primary-color);
   opacity: 0.7;
   transition: all 0.3s ease;
 }
 
 .swiper-pagination-bullet-active {
   opacity: 1;
-  background: #ffffff;
+  background: var(--primary-color);
   transform: scale(1.2);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.4s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.6s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.6s ease-out;
+}
+
+.section-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.section-animate.animate {
+  opacity: 1;
+  transform: translateY(0);
 } 

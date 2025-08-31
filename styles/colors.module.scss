@@ -1,17 +1,24 @@
-$primary-color: #f9311f;
-// $primary-color: #ff5100; 
-$secondary-color: #fde3be;
-$background-color: #e6fcfe;
+$primary-color: #07484A;
+$secondary-color: #70908B;
+$background-color: #FDFBF8;
 
-$primary-text-color: #012528;
+$primary-text-color: #07484A;
+$secondary-text-color: #70908B;
 
-$primary-accent-color: #ea0665;
-
-
-
+$accent-color-1: #CAF3E5;
+$accent-color-2: #E0EFF6;
+$accent-color-3: #EEEBFF;
+$accent-color-4: #FFF4E7;
+$accent-color-5: #FDFBF8;
 
 :export{
     primaryColor: $primary-color;
+    secondaryColor: $secondary-color;
     primaryTextColor: $primary-text-color;
-
+    secondaryTextColor: $secondary-text-color;
+    accentColor1: $accent-color-1;
+    accentColor2: $accent-color-2;
+    accentColor3: $accent-color-3;
+    accentColor4: $accent-color-4;
+    accentColor5: $accent-color-5;
 }

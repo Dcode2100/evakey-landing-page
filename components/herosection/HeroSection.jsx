@@ -1,85 +1,114 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
-import ButtonWave from "../productpage/ButtonWave";
+import ButtonWave from "../ButtonWave";
 import SimpleSlider from "@components/carousel-slider/SimpleSlider";
-import Productcategory from "@components/product-category/Productcategory";
 
 const HeroSection = () => {
+  const scrollToProducts = () => {
+    const element = document.getElementById('products');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
-      <section className="container mx-auto px-4 md:px-[7rem] min-h-screen">
-        <div className="grid lg:grid-cols-2 gap-6 pt-[102px] mt-12">
-          <div className="flex flex-col justify-center space-y-4 py-8">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
-              Discover Amazing Keychains
-            </h1>
-            <p className="text-base md:text-lg lg:text-xl text-zinc-500 dark:text-zinc-400">
-              Premium and custom keychains for everyone.
-            </p>
-            <Link href="/products">
-              <ButtonWave title="Explore Products" />
-            </Link>
-            <div className="space-y-2">
-              <h3 className="text-lg font-medium">About EVA KEY</h3>
-              <p className="text-sm md:text-base text-zinc-500 dark:text-zinc-400">
-                We&apos;re a global keychain company providing high-quality,
-                custom keychains to customers worldwide.
-              </p>
+      <section className="relative min-h-screen bg-gradient-to-br from-accent-5 via-white to-accent-1 overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/assets/Bg1.jpg')] bg-cover bg-center opacity-10"></div>
+        
+        <div className="relative container mx-auto px-8 lg:px-16 xl:px-20 min-h-screen">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 pt-24 lg:pt-32">
+            <div className="flex flex-col justify-center space-y-8 py-12">
+              <div className="space-y-6">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-playfair font-bold text-primary tracking-tight leading-tight">
+                  Discover Amazing
+                  <span className="block text-secondary">Keychains</span>
+                </h1>
+                <p className="text-lg lg:text-xl xl:text-2xl text-secondary font-opensans font-normal max-w-2xl leading-relaxed">
+                  Premium and custom keychains crafted with excellence for everyone.
+                </p>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <button onClick={scrollToProducts}>
+                  <ButtonWave title="Explore Products" />
+                </button>
+                <button className="px-8 py-4 bg-transparent border-2 border-primary text-primary font-opensans font-semibold rounded-lg hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105">
+                  Learn More
+                </button>
+              </div>
+              
+              <div className="pt-8 space-y-4">
+                <h3 className="text-xl font-playfair font-semibold text-primary">About EVA KEY</h3>
+                <p className="text-base lg:text-lg text-secondary font-opensans leading-relaxed max-w-xl">
+                  We're a global keychain company providing high-quality, custom keychains to customers worldwide. 
+                  Our commitment to excellence and innovation sets us apart in the industry.
+                </p>
+              </div>
             </div>
-          </div>
-          <div className="flex justify-center items-center w-full lg:pl-[5rem]">
-            <div className="w-full max-w-[500px]">
-              <SimpleSlider />
+            
+            <div className="flex justify-center items-center w-full lg:pl-12 xl:pl-16">
+              <div className="w-full max-w-[600px] relative">
+                <div className="absolute -inset-4 bg-gradient-to-r from-accent-1 to-accent-2 rounded-3xl opacity-30 blur-xl"></div>
+                <div className="relative bg-white rounded-3xl p-8 shadow-2xl">
+                  <SimpleSlider />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="relative px-4 py-12">
-        <div className="max-w-4xl mx-auto">
-          <h3 className="text-lg font-bold text-center mb-8">
-            Brands That Trust Us
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center">
-            <div className="relative h-20 w-20 md:w-[90px]">
+      <div className="relative px-8 lg:px-16 xl:px-20 py-20 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h3 className="text-2xl lg:text-3xl font-playfair font-bold text-primary mb-4">
+              Brands That Trust Us
+            </h3>
+            <p className="text-lg text-secondary font-opensans max-w-2xl mx-auto">
+              We've earned the trust of leading brands worldwide through our commitment to quality and innovation.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 justify-items-center">
+            <div className="relative h-24 w-24 lg:h-28 lg:w-28 group">
               <Image
                 src="/assets/ipl.jpg"
-                alt="Brand 1"
+                alt="IPL Brand"
                 fill
-                className="object-contain"
+                className="object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300 transform group-hover:scale-110"
               />
             </div>
-            <div className="relative h-20 w-20 md:w-[90px]">
+            <div className="relative h-24 w-24 lg:h-28 lg:w-28 group">
               <Image
                 src="/assets/abs.jpg"
-                alt="Brand 2"
+                alt="ABS Brand"
                 fill
-                className="object-contain"
+                className="object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300 transform group-hover:scale-110"
               />
             </div>
-            <div className="relative h-20 w-20 md:w-[90px]">
+            <div className="relative h-24 w-24 lg:h-28 lg:w-28 group">
+              <Image
+                src="/assets/f1.png"
+                alt="F1 Brand"
+                fill
+                className="object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300 transform group-hover:scale-110"
+              />
+            </div>
+            <div className="relative h-24 w-24 lg:h-28 lg:w-28 group">
               <Image
                 src="/assets/hdfc.png"
-                alt="Brand 3"
+                alt="HDFC Brand"
                 fill
-                className="object-contain"
-              />
-            </div>
-            <div className="relative h-20 w-20 md:w-[90px]">
-              <Image
-                src="/assets/disney.png"
-                alt="Brand 4"
-                fill
-                className="object-contain"
+                className="object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300 transform group-hover:scale-110"
               />
             </div>
           </div>
         </div>
-        <div className="absolute w-full border-b-2 border-blue-500 bottom-0" />
-      </div>
-
-      <div className="px-4 md:px-[5rem] py-12">
-        <Productcategory />
+        
+        <div className="absolute w-full h-px bg-gradient-to-r from-transparent via-secondary to-transparent bottom-0 left-0"></div>
       </div>
     </>
   );

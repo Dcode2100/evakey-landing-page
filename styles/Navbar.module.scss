@@ -1,188 +1,188 @@
 @import "./colors.module.scss";
-.logoX {
-  transition: all 0.3s ease-in-out;
+
+.navbar {
+  background-color: rgba(253, 251, 248, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(112, 144, 139, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  transition: all 0.3s ease;
+}
+
+.navbarContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem;
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $primary-color;
+  transition: all 0.3s ease;
+  
   &:hover {
-    .logoX {
-      transform: rotate(180deg);
-    }
-  }
-}
-
-.link {
-  @apply text-sm;
-  opacity: 0;
-  position: relative;
-  color: $primary-text-color;
-  height: fit-content;
-  padding: 0.4em 0.8em;
-  border-radius: 0.3em;
-  transition: all 0.3s cubic-bezier(1, -0.05, 0.77, 1.04);
-
-  &:before {
-    content: "";
-    height: 0.15em;
-    width: 0.4em;
-    border-radius: 1em;
-    background: $primary-color;
-    position: absolute;
-    bottom: -0.5em;
-    left: 50%;
-    transform: translate(-50%);
-    transition: all 0.2s cubic-bezier(1, -0.05, 0.77, 1.04);
-  }
-
-  &:hover {
-    background-color: $primary-text-color;
-    &:before {
-      width: 90%;
-      box-shadow: transparentize($primary-color, $amount: 0.4) 0px -7px 20px 1px;
-    }
-  }
-}
-
-.bar {
-  border-bottom: 1px solid $primary-text-color;
-  background-color: transparentize($background-color, 0.7);
-  position: sticky;
-  top: 0;
-}
-
-.curriculum {
-  background-color: transparent;
-  color: $primary-text-color;
-  overflow: hidden;
-  cursor: pointer;
-  position: relative;
-  transition: all 0.1s ease-in-out;
-  border: 1px solid $primary-color;
-  &:hover {
-    background-color: transparentize($primary-color, 0.9);
-    color: $primary-color;
     transform: scale(1.05);
   }
 }
 
-.box {
-  width: 30px;
-  height: 30px;
-  outline: none;
-  // border: 2px solid blue;
+.logoIcon {
+  width: 2rem;
+  height: 2rem;
+  color: $primary-color;
 }
 
-.active {
-  .hamburguer {
-    & {
-      // background-color: rgb(186, 20, 20);
-      background-color: transparent;
-    }
-
-    &::after {
-      top: -5px;
-      transform: rotate(45deg);
-    }
-    &::before {
-      top: -1px;
-      transform: rotate(-45deg);
-    }
-  }
-}
-
-.mobile {
-  background-color: transparentize($primary-text-color, 0.6);
-  position: fixed;
-  right: 0;
-  justify-content: center;
+.navLinks {
+  display: flex;
+  gap: 2rem;
   align-items: center;
-  z-index: 30;
-  transition: all 0.3s ease-in-out;
-  border-radius: 50%;
-  /* Use a CSS animation */
-  transform-origin: top left;
-  &.on {
-    display: flex;
-    animation: openMobile 0.5s forwards; /* Display it when 'on' class is added */
-  }
-  &.off {
-    display: flex;
-    animation: closeMobile 0.5s forwards;
-  }
-  @keyframes openMobile {
-    0% {
-      width: 0vw; /* Start with 25% width */
-      height: 0vh; /* Start with 25% height */
-      border-radius: 50%;
-      color: transparent;
-      top: 3rem;
-      right: 4rem;
-      display: hidden;
-    }
-    10% {
-      // width: 50%;
-    }
-    100% {
-      display: flex;
-      width: 100vw; /* End with 100% width */
-      height: calc(100vh - 6rem); /* End with 100% height */
-      border-radius: 0%;
-      color: azure;
-      top: 6rem;
-    }
-  }
+}
 
-  @keyframes closeMobile {
-    0% {
-      width: 100vw;
-      height: calc(100vh - 6rem);
-      border-radius: 0%;
-      color: azure;
-      top: 6rem;
-    }
-    5% {
-      color: transparent;
-    }
-    100% {
-      width: 0vw;
-      height: 0vh;
-      border-radius: 50%;
-      color: transparent;
-      top: 3rem;
-      right: 4rem;
-    }
-  }
-}
-@media screen and (min-width: 727px) {
-  .mobile {
-    &.on {
-      display: none;
-    }
-    &.off {
-      display: none;
-    }
-  }
-}
-.hamburguer {
+.link {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: $primary-text-color;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
   position: relative;
-  &,
-  &::before,
-  &::after {
-    width: 30px;
-    height: 4px;
-    border-radius: 4px;
+  
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
     background-color: $primary-color;
-    position: relative;
-    display: block;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
   }
+  
+  &:hover {
+    color: $primary-color;
+    background-color: rgba(7, 72, 74, 0.05);
+    
+    &:before {
+      width: 80%;
+    }
+  }
+}
 
-  &::after {
-    content: "";
-    top: -14px;
+.ctaButton {
+  background-color: $primary-color;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid $primary-color;
+  
+  &:hover {
+    background-color: transparent;
+    color: $primary-color;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(7, 72, 74, 0.2);
   }
-  &::before {
-    content: "";
-    top: 10px;
+}
+
+.mobileMenuButton {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  
+  .line {
+    width: 25px;
+    height: 3px;
+    background-color: $primary-color;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+  
+  &.active {
+    .line:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    .line:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .line:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+  }
+}
+
+.mobileMenu {
+  display: none;
+  position: fixed;
+  top: 5rem;
+  left: 0;
+  right: 0;
+  background-color: rgba(253, 251, 248, 0.98);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(112, 144, 139, 0.2);
+  padding: 2rem;
+  transform: translateY(-100%);
+  transition: all 0.3s ease;
+  
+  &.open {
+    transform: translateY(0);
+  }
+  
+  .mobileNavLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    
+    .mobileLink {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: $primary-text-color;
+      text-decoration: none;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background-color: rgba(7, 72, 74, 0.05);
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navLinks {
+    display: none;
+  }
+  
+  .mobileMenuButton {
+    display: flex;
+  }
+  
+  .mobileMenu {
+    display: block;
+  }
+  
+  .navbarContainer {
+    padding: 0 1rem;
   }
 }
